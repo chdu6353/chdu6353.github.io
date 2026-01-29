@@ -1,0 +1,12 @@
+Home 
+ Hobbies. Exp.  Contact. NAV BAR 
+ separated by div
+ link to hobbies by using 
+ a href =contact.html
+ 
+ div
+ <a href=hobbies.html><Hobbies></a>-->
+<!-- main 
+ img src 
+ can also do img src="../img(name of folder outside current folder)/"
+ a tag, path to file
