@@ -50,7 +50,8 @@ p, li, table {
 }
 
 /* || header layout */
-
+/* changed from green to white */
+/* contrast ratio 1.02:1 */
 div[class="nav"], article, footer, .secondary {
   background-color: white;
 }
