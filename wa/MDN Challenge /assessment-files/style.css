@@ -4,7 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
-
+/* why is it green */
 html {
   font-size: 10px;
   background-color: #dde;
@@ -52,7 +52,7 @@ p, li, table {
 /* || header layout */
 
 div[class="nav"], article, footer, .secondary {
-  background-color: green;
+  background-color: white;
 }
 
 article, footer, .secondary {
