@@ -55,7 +55,7 @@
             margin: 0 auto;
         }
         header{
-            text-align: center;
+            text-align: left;
             margin-bottom: var(--spacing-x1);
         }
 
