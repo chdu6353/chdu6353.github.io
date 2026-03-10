@@ -5,78 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Homepage</title>
     <link rel="stylesheet" href="midtermProject.css">
-    <!-- Rystan showed us this CSS -->
-    <style>
-        img{
-            width:  425px;
-            height: 300px;
-        }
-        nav{
-            display: flex;
-            flex-direction: row; 
-            justify-content: space-around;
-        }
-    </style>
 </head>
     <body>
-        <header>
-            <h1 tabindex="0">Hi, my name is Christianna Duthie</h1>
-            <h2 tabindex="1">I am 20, and I'm an artist and engineer</h2>
-        </header>
+        <div class="container">
+            <header>
+                <h1 tabindex="0">Christianna Duthie</h1>
+                <h2 tabindex="1">Creative Technology and Design Engineering</h2>
+            </header>
 
-        <nav> 
-                <a href="contact.html" tabindex="2">Contact</a>
-                <a href="experience.html" tabindex="3">Experience</a>
-                <a href="hobbies.html" tabindex="4">Hobbies</a>
-        </nav>
-
-        <main>
-                <table>
-                    <tr>
-                        <td>
-                            <img src="headshotme.JPG" alt="my headshot" tabindex="5">
-                        </td>
-                        <td>
-                            <h2 tabindex="6">Who is Christianna?</h2>
-                            <aside tabindex="7">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
-                                Sed non nibh a lacus ornare molestie. Pellentesque et <br> sagittis tortor. 
-                                Ut finibus aliquet ligula. Vivamus sed nibh erat. <br>
-                                Aliquam nunc eros, porttitor a arcu ut, vehicula faucibus nisl. <br>
-                                Maecenas posuere, nunc vel lobortis faucibus, mauris orci <br> malesuada ante.
-                                Maecenas egestas interdum erat sit amet euismod.
-                            </aside>
-                        </td>
-                    </tr>
-                </table>
-        </main>
-
-        <footer>
-            <h3  tabindex="8">Follow my social media:</h3>
-            <nav>
-                <table>
-                    <tr>
-                      <td style="padding: 100px;">
-                            <h4 tabindex="9">Instagram</h4>
-                                <a href="https://www.instagram.com/christiiaanna/">
-                                    <img src="instagramLogo.png" alt="instagram logo" width="10">
-                                    <!-- size adjustment of img not working -->
-                                </a>
-                        </td>
-                        <td style="padding: 200px;">
-                            <h4 tabindex="11">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/christianna-duthie-0603162a6/">
-                                        <img src="linkedinLogo.png" alt="linkedin icon">
-                                        <!-- size adjustment of img not working -->
-                                </a>
-                        </td>
-                        <td style="padding: 100px;" tabindex="13">
-                            <h4>Etsy</h4>
-                            <a href="https://www.etsy.com/shop/WeThePosters">WeThePosters</a>
-                        </td>
-                    </tr>
-                </table>
+            <nav> 
+                    <a href="contact.html" class="button" tabindex="2">Contact</a>
+                    <a href="experience.html" class="button" tabindex="3">Experience</a>
+                    <a href="hobbies.html" class="button" tabindex="4">Hobbies</a>
             </nav>
-        </footer>
+
+            <main>
+                    <table>
+                        <tr>
+                                <img class="headshot" src="headshotme.JPG" alt="my headshot" tabindex="5">
+                            <td>
+                                    <h2 tabindex="6">Who is Christianna?</h2>
+                                    <aside tabindex="7">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                        Sed non nibh a lacus ornare molestie. Pellentesque et sagittis tortor. 
+                                        Ut finibus aliquet ligula. Vivamus sed nibh erat.
+                                        Aliquam nunc eros, porttitor a arcu ut, vehicula faucibus nisl. 
+                                        Maecenas posuere, nunc vel lobortis faucibus, mauris orci malesuada ante.
+                                        Maecenas egestas interdum erat sit amet euismod.
+                                    </aside>
+                            </td>
+                        </tr>
+                    </table>
+            </main>
+
+            <footer>
+                <h3  tabindex="8">Follow my social media:</h3>
+                <nav>
+                    <table>
+                        <tr>
+                        <td style="padding: 100px;">
+                                <h4 tabindex="9">Instagram</h4>
+                                    <a href="https://www.instagram.com/christiiaanna/">
+                                        <img class="icon" src="instagramLogo.png" alt="instagram logo">
+                                    </a>
+                            </td>
+                            <td style="padding: 100px;">
+                                <h4 tabindex="11">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/christianna-duthie-0603162a6/">
+                                            <img class="icon" src="linkedinLogo.png" alt="linkedin icon">
+                                    </a>
+                            </td>
+                            <td style="padding: 100px;">
+                                <h4 tabindex="13">Etsy</h4>
+                                <a href="https://www.etsy.com/shop/WeThePosters">
+                                    <img class="icon" src="weThePostersLogo.png" alt="etsy icon">
+                                </a>
+                            </td>
+                        </tr>
+                    </table>
+                </nav>
+            </footer>
+        </div>
     </body>
 </html>
