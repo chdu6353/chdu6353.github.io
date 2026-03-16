@@ -220,12 +220,12 @@
                 font-size: 1.5rem;
             }
             nav{
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
             }
             table tr{
                 display: flex;
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
             }
             td{
@@ -233,7 +233,7 @@
                 text-align: center;
             }
             .headshot{
-                max-width: 300px;
+                max-width: 100%;
                 margin-bottom: var(--spacing-md);
             }
             .icon{
