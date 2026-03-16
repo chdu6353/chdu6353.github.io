@@ -43,6 +43,7 @@
             color: var(--color-text-dark);
             margin: var(--spacing-xl);
             width: 100%;
+            overflow-x: hidden;
         }
 
         @media (min-width: 768px){
@@ -83,6 +84,7 @@
         
         table {
             width: 100%; 
+            
             /* table-layout: fixed; */
             border-radius: 10px;
             border: #f1c40f;
