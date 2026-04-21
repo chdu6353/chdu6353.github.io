@@ -42,5 +42,122 @@ maze-container {
 }
 
 @keyframes exitGlow {
-    
+    0%, 
+    100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+.wall {
+    background-color: #333;
+    position: absolute;
+}
+
+.wall.top {
+    top: 0; 
+    left: 0;
+    right: 0;
+    height: 2px;
+}
+
+.wall.right {
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    width: 2px;
+}
+
+.wall.bottom {
+    bottom: 0; 
+    left: 0;
+    right: 0;
+    height: 2px;
+}
+
+.wall.left {
+    top: 0; 
+    left: 0;
+    bottom: 0;
+    width: 2px;
+}
+
+#player {
+    position: absolute;
+    background: radial-gradient(circle, #4caf50, #45a049);
+    transition: all 0.2 ease;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#controls {
+    margin: 10px;
+    display: grid;
+    grid-template-areas: 
+        ". up ."
+        "left . right"
+        ". down .";
+    gap: 10px;
+    justify-content: center;
+}
+
+.control.btn {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    background: linear-gradient(45deg, #333, #444);
+    color: white;
+    border: none;
+    border-radius: 50;
+    cursor: pointer;
+    transition: all 0.2 ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.control.btn:active {
+    transform: scale(0.9);
+}
+
+#up{
+    grid-area: up;
+}
+
+#down{
+    grid-area: down;
+}
+
+#left{
+    grid-area: left;
+}
+
+#right{
+    grid-area: right;
+}
+
+#message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    color: white; 
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    animation: message;
 }
