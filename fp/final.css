@@ -9,7 +9,7 @@ body {
     overflow: hidden;
 }
 
-maze-container {
+#maze-container {
     position: relative;
     margin: 20px;
     box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
@@ -114,7 +114,7 @@ maze-container {
     justify-content: center;
 }
 
-.control.btn {
+.control-btn {
     width: 60px;
     height: 60px;
     font-size: 24px;

@@ -27,13 +27,13 @@ function generateMaze() {
                 if(current.x > 0 && !maze[current.y][current.x - 1].visited){
                     neighbors.push("left");
                 }
-                if(current.x < MAZE_SIZE - 1 && !maze[current.y][current.x - 1].visited) {
+                if(current.x < MAZE_SIZE - 1 && !maze[current.y][current.x + 1].visited) {
                     neighbors.push("right");
                 }
-                  if(current.y < 0 && !maze[current.y - 1][current.x].visited) {
+                  if(current.y > 0 && !maze[current.y - 1][current.x].visited) {
                     neighbors.push("top");
                 }
-                  if(current.y < 0 && !maze[current.y - 1][current.x].visited) {
+                  if(current.y < MAZE_SIZE - 1 && !maze[current.y + 1][current.x].visited) {
                     neighbors.push("bottom");
                 }
                 if(neighbors.length > 0){
@@ -80,7 +80,7 @@ function generateMaze() {
                 switch (side) { 
                     case 0:
                         exitY = 0;
-                        exitX = Math.floor(Math.random() * MATH_SIZE);
+                        exitX = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 1: 
                         exitX = MATH_SIZE - 1; 
@@ -123,7 +123,7 @@ function renderMaze() {
     for(let y = 0; y < MAZE_SIZE; y++){
         for(let x = 0; x < MAZE_SIZE; x++) {
             const cell = document.createElement("div"); 
-            cell.className = "cell" + (x === exitPos.x && y === exitPos.y ? "exit": "");
+            cell.className = "cell" + (x === exitPos.x && y === exitPos.y ? " exit": "");
             cell.style.width = CELL_SIZE + "px";
             cell.style.height = CELL_SIZE + "px"; 
 
@@ -145,8 +145,8 @@ function updatePlayerPosition() {
     const playerElem = document.getElementById("player");
     playerElem.style.width = CELL_SIZE * 0.6 + "px"; 
     playerElem.style.height = CELL_SIZE * 0.6 + "px"; 
-    playerElem.style.left = CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
-    playerElem.style.top = CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
+    playerElem.style.left = player.x * CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
+    playerElem.style.top = player.y * CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
 
     if(player.x === exitPos.x && player.y === exitPos.y) {
         showMessage("Winner"); 
@@ -154,7 +154,7 @@ function updatePlayerPosition() {
 }
 
 function movePlayer(direction){
-    if(gameActive) return; 
+    if(!gameActive) return; 
     const walls = maze[player.y][player.x].walls;
     switch(direction) {
         case "up": 
@@ -207,7 +207,7 @@ document.addEventListener("keydown", (e) =>{
     };
     if(directions[e.key] && gameActive){
         movePlayer(directions[e.key]);
-        const buttonId = direction[e.key];
+        const buttonId = directions[e.key];
         const button = document.getElementById(buttonId); 
         if(button) {
             button.classList.add("hover-effect"); 
@@ -217,16 +217,16 @@ document.addEventListener("keydown", (e) =>{
 
 document.addEventListener("keyup", (e) => {
     const directions = { 
-         ArrowUp: "up",
+        ArrowUp: "up",
         ArrowDown: "down",
         ArrowLeft: "left", 
         ArrowRight: "right",
     };
     if(directions[e.key]){
-        const buttonId = direction[e.key];
+        const buttonId = directions[e.key];
         const button = document.getElementById(buttonId); 
         if(button){
-            button.classList.remove(hover-effect); 
+            button.classList.remove("hover-effect"); 
         }
     }
 });
