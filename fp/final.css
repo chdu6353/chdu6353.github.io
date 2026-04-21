@@ -41,4 +41,6 @@ maze-container {
     animation: exitGlow 2s infinite; 
 }
 
-@keyframes exitGlow 
+@keyframes exitGlow {
+    
+}
