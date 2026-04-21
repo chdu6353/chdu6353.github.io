@@ -63,7 +63,134 @@ function generateMaze() {
                             break; 
                     }
 
-                    maze[next.y][next.x].visited
+                    maze[next.y][next.x].visited = true; 
+                    stack.push(current);     
+                    current = next;
+                }
+                else if(stack.length > 0){
+                    current = stack.pop(); 
+                } else {
+                    break; 
                 }
             }
+
+            let side, exitX, exitY; 
+            do {
+                side = Math.floor(Math.random() * 4); 
+                switch (side) { 
+                    case 0:
+                        exitY = 0;
+                        exitX = Math.floor(Math.random() * MATH_SIZE);
+                        break; 
+                    case 1: 
+                        exitX = MATH_SIZE - 1; 
+                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        break; 
+                    case 2: 
+                        exitX = MATH_SIZE - 1; 
+                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        break; 
+                    case 3: 
+                        exitX = 0; 
+                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        break; 
+        }
+    } while (exitX === 0 && exitY === 0); 
+
+    exitPos = {x: exitX, y: exitY}; 
+
+    switch(side) {
+        case 0:
+            maze[exitY][exitX].walls.top = false;
+            break; 
+         case 1:
+            maze[exitY][exitX].walls.right = false;
+            break; 
+         case 2:
+            maze[exitY][exitX].walls.bottom = false;
+            break; 
+         case 3:
+            maze[exitY][exitX].walls.left = false;
+            break; 
+    }
+}
+
+function renderMaze() {
+    const container = document.getElementById{"maze"};
+    container.style.gridTemplateColumns = `repeat(${MAZE_SIZE}, ${CELL_SIZE}px)`;
+    container.innerHTML = ""; 
+
+    for(let y = 0; y < MAZE_SIZE; y++){
+        for(let x = 0; x < MAZE_SIZE; x++) {
+            const cell = document.createElement("div"); 
+            cell.className = "cell" + (x === exitPos.x && y === exitPos.y ? "exit": "");
+            cell.style.width = CELL_SIZE + "px";
+            cell.style.height = CELL_SIZE + "px"; 
+
+            Object.entries(maze[y][x].walls).forEach(([dir, exists]) => {
+                if(exists){
+                    const wall = document.createElement("div");
+                    wall.className = `wall ${dir}`; 
+                    cell.appendChild(wall);
+                }
+            });
+
+            container.appendChild(cell);
+        }
+    }
+}
+
+
+function updatePlayerPosition() {
+    const playerElem = document.getElementById("player");
+    playerElem.style.width = CELL_SIZE * 0.6 + "px"; 
+    playerElem.style.height = CELL_SIZE * 0.6 + "px"; 
+    playerElem.style.left = CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
+    playerElem.style.top = CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
+
+    if(player.x === exitPos.x && player.y === exitPos.y) {
+        showMessage("Winner"); 
+    }
+}
+
+function movePlayer(direction){
+    if(gameActive) return; 
+    const walls = maze[player.y][player.x].walls;
+    switch(direction) {
+        case "up": 
+            if(!walls.top) player.y--;
+            break; 
+        case "down": 
+            if(!walls.bottom) player.y++;
+            break; 
+        case "left": 
+            if(!walls.left) player.x--;
+            break; 
+        case "right": 
+            if(!walls.right) player.x++;
+            break; 
+    }
+    updatePlayerPosition();
+}
+
+function showMessage(text) {
+    gameActive = false; 
+    clearInterval(timer); 
+    document.getElementById("message-text").textContent = text; 
+    document.getElementById("message").style.display = "block";
+}
+
+function initGame() {
+    gameActive = true; 
+    timeLeft = 30; 
+    document.getElementById("timer").textContent = `Timer: ${timeLeft}`; 
+    document.getElementById("message").style.display = "none"; 
+    player = {x: 0, y: 0}; 
+    generateMaze(); 
+    renderMaze(); 
+
+    timer = setInterval(() => {
+        timeLeft--; 
+        document.getElementById("timer").textContent =`Time: ${timeLeft}`; 
+    })
 }
