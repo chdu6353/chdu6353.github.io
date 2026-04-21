@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    font-family: "Arial", sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+maze-container {
+    position: relative;
+    margin: 20px;
+    box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.cell {
+    position: relative;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+    transition: background 0.3 ease;
+}
+
+.cell.exit {
+    background: linear-gradient(45deg, #ff6666, #ff9999);
+    animation: exitGlow 2s infinite; 
+}
+
+@keyframes exitGlow 
