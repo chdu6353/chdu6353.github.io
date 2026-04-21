@@ -84,15 +84,15 @@ function generateMaze() {
                         break; 
                     case 1: 
                         exitX = MATH_SIZE - 1; 
-                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        exitY = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 2: 
                         exitX = MATH_SIZE - 1; 
-                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        exitY = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 3: 
                         exitX = 0; 
-                        exitY = Math.floor(Math.random * MAZE_SIZE);
+                        exitY = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
         }
     } while (exitX === 0 && exitY === 0); 
@@ -116,7 +116,7 @@ function generateMaze() {
 }
 
 function renderMaze() {
-    const container = document.getElementById{"maze"};
+    const container = document.getElementById("maze");
     container.style.gridTemplateColumns = `repeat(${MAZE_SIZE}, ${CELL_SIZE}px)`;
     container.innerHTML = ""; 
 
@@ -192,5 +192,43 @@ function initGame() {
     timer = setInterval(() => {
         timeLeft--; 
         document.getElementById("timer").textContent =`Time: ${timeLeft}`; 
-    })
+        if(timeLeft <= 0){
+            showMessage("Time Up!");
+        }
+    }, 1000); 
 }
+
+document.addEventListener("keydown", (e) =>{
+    const directions = {
+        ArrowUp: "up",
+        ArrowDown: "down",
+        ArrowLeft: "left", 
+        ArrowRight: "right",
+    };
+    if(directions[e.key] && gameActive){
+        movePlayer(directions[e.key]);
+        const buttonId = direction[e.key];
+        const button = document.getElementById(buttonId); 
+        if(button) {
+            button.classList.add("hover-effect"); 
+        }
+    }
+}); 
+
+document.addEventListener("keyup", (e) => {
+    const directions = { 
+         ArrowUp: "up",
+        ArrowDown: "down",
+        ArrowLeft: "left", 
+        ArrowRight: "right",
+    };
+    if(directions[e.key]){
+        const buttonId = direction[e.key];
+        const button = document.getElementById(buttonId); 
+        if(button){
+            button.classList.remove(hover-effect); 
+        }
+    }
+});
+
+initGame(); 
