@@ -26,16 +26,6 @@ body {
     outline: none;
 }
 
-#volume::-webkit-slider-thumb {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #4caf50;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
-}
-
 #save-volume {
     display: none;
 }
