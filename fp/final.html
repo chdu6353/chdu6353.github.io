@@ -11,6 +11,12 @@
     <!-- remove arrow thingies at bottom -->
     <!-- consider punishment for user when ball hits wall -->
     <h1> DRAG VOLUME HERE</h1>
+    
+    <div id="volume-control">
+        <label for="volume">Volume: <span id="volume-value">50</span></label>
+        <input type="range" id="volume" min="0" max="100" value="50">
+    </div>
+
     <h2> Complete maze to Submit</h2>
     <div id="timer">Timer: 30</div> 
     <div id="maze-container">
@@ -28,11 +34,7 @@
         <h2 id="message-text"></h2>
         <button id="try-again" onclick="initGame()">Try Again</button>
     </div>
-    <div id="volume-control">
-        <label for="volume">Volume: <span id="volume-value">50</span></label>
-        <input type="range" id="volume" min="0" max="100" value="50">
-    </div>
-
+    
     <script src="final.js"></script>
 </body>
 </html>

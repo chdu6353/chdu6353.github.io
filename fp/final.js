@@ -7,6 +7,13 @@ let maze;
 let exitPos;
 let gameActive = false; 
 
+const volumeSlider = document.getElementById("volume"); 
+const volumeValue = document.getElementById("volume-value"); 
+
+volumeSlider.addEventListener("input", () => {
+    volumeValue.textContent = volumeSlider.value; 
+}); 
+
 function generateMaze() { 
     maze = Array(MAZE_SIZE)
         .fill()
