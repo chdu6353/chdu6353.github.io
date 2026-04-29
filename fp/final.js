@@ -181,11 +181,15 @@ function showMessage(text) {
 }
 
 function initGame() {
+
     gameActive = true; 
     timeLeft = 30; 
+    
     document.getElementById("timer").textContent = `Timer: ${timeLeft}`; 
     document.getElementById("message").style.display = "none"; 
+    
     player = {x: 0, y: 0}; 
+
     generateMaze(); 
     renderMaze(); 
 
