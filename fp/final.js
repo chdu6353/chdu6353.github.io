@@ -83,12 +83,12 @@ function generateMaze() {
                         exitX = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 1: 
-                        exitX = MATH_SIZE - 1; 
+                        exitX = MAZE_SIZE - 1; 
                         exitY = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 2: 
-                        exitX = MATH_SIZE - 1; 
-                        exitY = Math.floor(Math.random() * MAZE_SIZE);
+                        exitY = MAZE_SIZE - 1; 
+                        exitX = Math.floor(Math.random() * MAZE_SIZE);
                         break; 
                     case 3: 
                         exitX = 0; 
@@ -188,11 +188,12 @@ function initGame() {
     player = {x: 0, y: 0}; 
     generateMaze(); 
     renderMaze();
+    updatePlayerPosition();
     timer = setInterval(() => {
         timeLeft--; 
-        document.getElementById("timer").textContent =`Time: ${timeLeft}`; 
+        document.getElementById("timer").textContent =`Timer: ${timeLeft}`; 
         if(timeLeft <= 0){
-            showMessage("Time Up!");
+            showMessage("Times Up!");
         }
     }, 1000); 
 }

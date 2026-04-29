@@ -34,7 +34,7 @@ body {
     position: relative;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.9);
-    transition: background 0.3 ease;
+    transition: background 0.3s ease;
 }
 
 .cell.exit {
@@ -88,7 +88,7 @@ body {
 #player {
     position: absolute;
     background: radial-gradient(circle, #4caf50, #45a049);
-    transition: all 0.2 ease;
+    transition: all 0.2s ease;
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(76, 175, 80, 0.3);
     animation: pulse 1.5s infinite;
@@ -122,19 +122,19 @@ body {
     background: linear-gradient(45deg, #333, #444);
     color: white;
     border: none;
-    border-radius: 50;
+    border-radius: 50%;
     cursor: pointer;
-    transition: all 0.2 ease;
+    transition: all 0.2s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.control.btn:hover {
+.control-btn:hover {
     background: linear-gradient(45deg, #4caf50, #45a049);
     transform: scale(1.15);
     box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
 }
 
-.control.btn:active {
+.control-btn:active {
     transform: scale(0.9);
 }
 
@@ -224,4 +224,30 @@ body {
     background: linear-gradient(45deg, #4caf50, #45a049) !important;
     transform: scale(1.15) !important;
     box-shadow: 0 0 20px rgba(76, 175, 80, 0.5) !important;
+}
+
+#volume-control {
+    margin: 15px;
+    text-align: center;
+    color: white;
+}
+
+#volume {
+    width: 200px;
+    margin-top: 10px;
+    appearance: none;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #333, #555);
+    outline: none;
+}
+
+#volume::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4caf50;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
 }
