@@ -146,6 +146,7 @@ body {
 }
 
 .control-btn {
+    display: none; 
     width: 60px;
     height: 60px;
     font-size: 24px;
