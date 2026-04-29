@@ -6,6 +6,7 @@ let timeLeft = 30;
 let maze; 
 let exitPos;
 let gameActive = false; 
+let savedVolume = 50; 
 
 const volumeSlider = document.getElementById("volume"); 
 const volumeValue = document.getElementById("volume-value"); 
@@ -13,6 +14,12 @@ const volumeValue = document.getElementById("volume-value");
 volumeSlider.addEventListener("input", () => {
     volumeValue.textContent = volumeSlider.value; 
 }); 
+
+function handleSaveVolume(){
+    savedVolume = volumeSlider.value; 
+    alert(`Volume saved: ${savedVolume}`);
+    initGame(); 
+}
 
 function generateMaze() { 
     maze = Array(MAZE_SIZE)
@@ -156,7 +163,10 @@ function updatePlayerPosition() {
     playerElem.style.top = player.y * CELL_SIZE + CELL_SIZE * 0.2 + "px"; 
 
     if(player.x === exitPos.x && player.y === exitPos.y) {
-        showMessage("Winner"); 
+        didWin = true; 
+        document.getElementById("save-volume").style.display = "inline-block"; 
+        savedVolume = volumeSlider.value; 
+        showMessage(`Winner! Your volume is: ${savedVolume}`); 
     }
 }
 
@@ -188,6 +198,10 @@ function showMessage(text) {
 }
 
 function initGame() {
+    document.getElementById("save-volume").style.display = "none"; 
+    didWin = false;
+    volumeSlider.value = 50; 
+    volumeValue.textContent = 50; 
     gameActive = true; 
     timeLeft = 30; 
     document.getElementById("timer").textContent = `Timer: ${timeLeft}`; 
@@ -200,6 +214,11 @@ function initGame() {
         timeLeft--; 
         document.getElementById("timer").textContent =`Timer: ${timeLeft}`; 
         if(timeLeft <= 0){
+            didWin = false; 
+            document.getElementById("save-volume").style.display = "none"; 
+            volumeSlider.value = 50;
+            volumeValue.textContent = 50; 
+            savedVolume = 50; 
             showMessage("Times Up!");
         }
     }, 1000); 

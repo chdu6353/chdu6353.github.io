@@ -36,6 +36,10 @@ body {
     box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
 }
 
+#save-volume {
+    display: none;
+}
+
 #maze-container {
     position: relative;
     margin: 20px;
@@ -208,7 +212,7 @@ body {
     }
 }
 
-#try-again {
+.action-btn {
     background: linear-gradient(45deg, #4caf50, #45a049);
     color: white;
     border: none;
@@ -221,7 +225,7 @@ body {
     letter-spacing: 1px;
 }
 
-#try-again:hover {
+.action-btn:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
 }

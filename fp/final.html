@@ -11,7 +11,7 @@
     <!-- remove arrow thingies at bottom -->
     <!-- consider punishment for user when ball hits wall -->
     <h1> DRAG VOLUME HERE</h1>
-    
+
     <div id="volume-control">
         <label for="volume">Volume: <span id="volume-value">50</span></label>
         <input type="range" id="volume" min="0" max="100" value="50">
@@ -32,7 +32,8 @@
 
     <div id="message">
         <h2 id="message-text"></h2>
-        <button id="try-again" onclick="initGame()">Try Again</button>
+        <button id="try-again" class="action-btn" onclick="initGame()">Try Again</button>
+        <button id="save-volume" class="action-btn" onclick="handleSaveVolume()">Save Volume</button>
     </div>
     
     <script src="final.js"></script>
