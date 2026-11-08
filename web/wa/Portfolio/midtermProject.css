@@ -1,248 +1,277 @@
-       
-       /* CSS Reset and Base Styles */
-        :root {
-            /* Color Palette - 5 Core Colors */
-            --color-primary: #3498db;     /* Vibrant Blue - Main Brand Color */
-            --color-secondary: #2ecc71;   /* Emerald Green - Complementary Action Color */
-            --color-accent: #e74c3c;      /* Passionate Red - Highlight / Warning Color */
-            --color-neutral: #dbc4e5;     /* Light Pink - Neutral Text and Background */
-            --color-highlight: #f1c40f;   /* Bright Yellow - Accent / Attention Color */
-            
-            /* Derived Colors for Flexibility */
-            --color-background: color-mix(in srgb, var(--color-neutral) 10%, black);
-            --color-text-dark: var(--color-neutral);
-            --color-text-light: white;
 
-            /* Typography */
-            --font-primary: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-secondary: 'Roboto Mono', monospace;
+/* ========================================
+   1. COLOR PALETTE & DESIGN VARIABLES
+======================================== */
 
-            /* Spacing System */
-            --spacing-xs: 0.25rem;
-            --spacing-sm: 0.5rem;
-            --spacing-md: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
+:root {
+    --color-background: #F5F0E8;
+    --color-paper: #FFFCF7;
+    --color-text: #292725;
+    --color-primary: #813D50;
+    --color-secondary: #D6A6A5;
+    --color-highlight: #D9B86C;
 
-            /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 12px;
-        }
+    --font-primary: 'Space Grotesk', sans-serif;
+    --font-secondary: 'Georgia', serif;
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 4rem;
 
-        body {
-            font-family: var(--font-primary);
-            line-height: 1.6;
-            background-color: var(--color-background);
-            color: var(--color-text-dark);
-            margin: 0;
-            padding: var(--spacing-lg);
-            width: 100%;
-            overflow-x: hidden;
-        }
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --radius-lg: 24px;
+}
 
-        @media (min-width: 768px){
-            body{
-                padding: var(--spacing-xl);
-            }
-        }
+/* ========================================
+   2. RESET & GENERAL PAGE STYLING
+======================================== */
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        header{
-            text-align: left;
-            margin-bottom: var(--spacing-md);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* Typography Styles */
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-primary);
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: var(--spacing-md);
-            color: var(--color-secondary);
-        }
+body {
+    font-family: var(--font-primary);
+    line-height: 1.7;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 2rem;
+    overflow-x: hidden;
+}
 
-        h3 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-accent);
-        }
-        
-        table {
-            width: 100%; 
-            
-            /* table-layout: fixed; */
-            border-radius: 10px;
-            border: #f1c40f;
-        }
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-        td {
-            max-width: 500px;
-            overflow: scroll;
-            text-overflow: ellipsis;
-            white-space: wrap;
-        }
-        footer table{
-            width: 100%;
-            text-align: center;
-        }
-        footer td{
-            padding: var(--spacing-md);
-        }
+/* ========================================
+   3. HEADER
+======================================== */
 
-        .body-text {
-            font-size: 0.5rem;
-            margin-bottom: var(--spacing-md);
-        }
+header {
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid rgba(41, 39, 37, 0.2);
+}
 
-        .small-text {
-            font-size: 0.5rem;
-            color: color-mix(in srgb, var(--color-text-dark) 70%, transparent);
-        }
+header h1 {
+    font-family: var(--font-secondary);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: normal;
+    line-height: 1.1;
+    color: var(--color-primary);
+    letter-spacing: -2px;
+    margin-bottom: 1rem;
+}
 
-        /* Color Palette Section */
-        .color-palette {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-xl);
-        }
+header h2 {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
 
-        .color-swatch {
-            padding: var(--spacing-md);
-            border-radius: var(--radius-md);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-         .headshot {
-            width: 100%;
-            max-width: 1280px; 
-            height: auto;
-            border-radius: var(--radius-lg);
-        }
-        .icon {
-            width:  90px;
-            
-        }
-        nav {
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: space-evenly;
-            margin-top: var(--spacing-md); 
-            margin-top: var(--spacing-lg);
-            padding: var(--spacing-md); 
-        }
+/* ========================================
+   4. NAVIGATION
+======================================== */
 
-        /* Component Styles */
-        .button {
-            display: inline-block;
-            padding: var(--spacing-sm) var(--spacing-md);
-            background-color: var(--color-highlight);
-            color: black;
-            text-decoration: none;
-            border-radius: var(--radius-sm);
-            transition: background-color 0.3s ease, transform 0.2s;
-            border: 2px solid transparent;
-        }
+.container > nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem 0;
+}
 
-        .button:hover {
-            background-color: color-mix(in srgb, var(--color-primary) 80%, black);
-            border-color: var(--color-secondary);
-            transform: scale(1.05);
-        }
+.button {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
 
-        .button:active {
-            transform: scale(0.95);
-            background-color: var(--color-secondary);
-        }
+.button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-paper);
+    transform: translateY(-3px);
+}
 
-        .link {
-            color: var(--color-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease, text-decoration-color 0.3s;
-        }
+.button:focus-visible {
+    outline: 3px solid var(--color-highlight);
+    outline-offset: 4px;
+}
 
-        .link:hover {
-            color: var(--color-accent);
-            text-decoration: underline;
-            text-decoration-color: var(--color-highlight);
-        }
+/* ========================================
+   5. INTRODUCTION SECTION
+======================================== */
 
-        .link:visited {
-            color: var(--color-neutral);
-        }
+main {
+    padding: 3rem 0;
+}
 
-        /* Spacing Demonstration */
-        .spacing-demo {
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
-        }
+.intro {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.9fr) 1.1fr;
+    align-items: center;
+    gap: 4rem;
+    background-color: var(--color-paper);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 8px 30px rgba(41, 39, 37, 0.05);
+}
 
-        .spacing-block {
-            background-color: var(--color-primary);
-            height: 50px;
-        }
+.headshot {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+}
 
-        .footer {
-            display: flex; 
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: var(--spacing-xl);
-            padding: var(--spacing-xl) 0;
-        }
-        @media (max-width: 768px){
+.intro h2 {
+    font-family: var(--font-secondary);
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: var(--color-primary);
+    margin-bottom: 1.2rem;
+}
 
-            h1{
-                font-size: 2.5rem;
-            }
-            h2{
-                font-size: 1.5rem;
-            }
-            nav{
-                flex-direction: row;
-                align-items: center;
-            }
-            table tr{
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
-            td{
-                max-width: 100%;
-                text-align: center;
-            }
-            .headshot{
-                max-width: 100%;
-                margin-bottom: var(--spacing-md);
-            }
-            .icon{
-                width: 60px; 
-            }
+.intro aside {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: #514B47;
+}
 
+/* ========================================
+   6. SOCIAL MEDIA FOOTER
+======================================== */
 
-        }
-        aside{
-            padding-left: 50px;
-        }
-    
+footer {
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(41, 39, 37, 0.2);
+}
+
+footer h3 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+}
+
+footer nav {
+    display: block;
+}
+
+footer table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+footer td {
+    padding: 1rem;
+}
+
+footer h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* ========================================
+   7. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 1rem;
+    }
+
+    header {
+        padding-top: 2rem;
+    }
+
+    header h1 {
+        font-size: 3rem;
+    }
+
+    header h2 {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+
+    .container > nav {
+        justify-content: center;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .headshot {
+        max-width: 100%;
+        max-height: 500px;
+    }
+
+    .intro h2 {
+        font-size: 2rem;
+    }
+
+    footer h3 {
+        font-size: 1.7rem;
+    }
+
+    footer td {
+        padding: 0.5rem;
+    }
+
+    .icon {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    footer h4 {
+        font-size: 0.75rem;
+    }
+}
