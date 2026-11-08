@@ -275,3 +275,37 @@ footer h4 {
         font-size: 0.75rem;
     }
 }
+
+/* Subtle paper texture */
+body {
+    background-color: var(--color-background);
+    background-image:
+        radial-gradient(
+            rgba(129, 61, 80, 0.10) 0.6px,
+            transparent 0.6px
+        );
+    background-size: 8px 8px;
+}
+
+/* Floating portrait */
+.intro {
+    position: relative;
+    overflow: visible;
+}
+
+.headshot {
+    width: 100%;
+    max-width: 390px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 9px solid var(--color-paper);
+    border-radius: 4px;
+    transform: rotate(-2deg);
+    box-shadow:
+        5px 12px 25px rgba(41, 39, 37, 0.16);
+    transition: transform 0.4s ease;
+}
+
+.headshot:hover {
+    transform: rotate(0deg) translateY(-5px);
+}
