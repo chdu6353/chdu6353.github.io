@@ -1,6 +1,3 @@
 # chdu6353.github.io
 
-
-hiiiiiii
-lol
-readme
+This is my portfolio
