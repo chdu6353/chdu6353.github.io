@@ -925,4 +925,127 @@ body {
 
 }
 
+/* ========================================
+   NEW PLAYFUL NAVIGATION
+======================================== */
+
+/* The main floating navigation bar */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: fit-content;
+    max-width: 95%;
+    margin: 25px auto 40px;
+    padding: 12px 18px;
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 50px;
+    box-shadow: 5px 5px 0 #222222;
+    position: relative;
+    z-index: 100;
+}
+
+/* Individual navigation buttons */
+.main-nav .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 17px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #222222;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Button hover effect */
+.main-nav .button:hover {
+    background-color: #F5A6C8;
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+/* Make ART stand out */
+.main-nav .nav-art {
+    background-color: #F07855;
+    color: #222222;
+    border: 2px solid #222222;
+}
+
+.main-nav .nav-art:hover {
+    background-color: #F6D94A;
+    transform: translateY(-4px) rotate(2deg);
+}
+
+/* Dropdown container */
+.nav-dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    padding: 10px;
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 #222222;
+    z-index: 200;
+}
+
+/* Show dropdown on hover or keyboard focus */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+}
+
+/* Individual dropdown links */
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    color: #222222;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus {
+    background-color: #77C9A5;
+    padding-left: 17px;
+}
+
+/* Mobile navigation */
+@media (max-width: 650px) {
+    .main-nav {
+        width: 90%;
+        max-width: none;
+        gap: 6px;
+        padding: 10px;
+        border-radius: 25px;
+    }
+
+    .main-nav .button {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .nav-dropdown-menu {
+        min-width: 160px;
+    }
+}
+
 
