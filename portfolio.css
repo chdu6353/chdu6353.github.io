@@ -69,35 +69,8 @@ body {
 }
 
 /* ==========================================
-   5. NAVIGATION
+   ACCESSIBILITY — KEYBOARD FOCUS
 ========================================== */
-
-.main-nav {
-    display: flex;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(41, 39, 37, 0.2);
-    border-bottom: 1px solid rgba(41, 39, 37, 0.2);
-}
-
-.button {
-    text-decoration: none;
-    color: var(--black);
-    font-size: 0.85rem;
-    padding: 0.5rem 1rem;
-    border: 1px solid transparent;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.button:hover {
-    color: var(--burgundy);
-    background-color: var(--paper);
-    border-color: var(--pink);
-    transform: translateY(-3px);
-}
 
 .button:focus-visible,
 .text-link:focus-visible,
@@ -243,51 +216,4 @@ body {
 .main-nav .button {
     padding: 13px 20px;
     font-size: 1.05rem;
-}
-
-
-/* MOBILE CONTACT PAGE */
-
-@media (max-width: 650px) {
-
-    .contact-hero {
-        margin: 35px 18px 40px;
-        padding: 40px 20px;
-    }
-
-    .contact-hero h1 {
-        letter-spacing: -1px;
-    }
-
-    .contact-intro {
-        font-size: 1rem;
-    }
-
-    .contact-decoration {
-        right: 12px;
-        bottom: 5px;
-        font-size: 3rem;
-    }
-
-    .contact-content {
-        padding: 0 15px;
-    }
-
-    .contact-card {
-        padding: 28px 20px;
-    }
-
-    .contact-submit {
-        align-self: stretch;
-    }
-
-    .main-nav {
-        gap: 8px;
-        padding: 12px;
-    }
-
-    .main-nav .button {
-        padding: 10px 14px;
-        font-size: 0.9rem;
-    }
 }
