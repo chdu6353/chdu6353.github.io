@@ -51,7 +51,7 @@
 .home-page .star {
     display: inline-block;
     margin: 0 0.5rem;
-    color: var(--home-coral);
+    color: var(--home-blue);
     font-size: 1.2rem;
 }
 
@@ -67,9 +67,33 @@
 .home-page .header h1 span {
     display: inline-block;
     padding-left: 0;
-    color: var(--home-coral);
+    color: var(--home-pink);
     font-style: normal;
-    transform: rotate(-3deg);
+    cursor: default;
+    transform-origin: center;
+    transition: color 0.2s ease;
+}
+
+.home-page .header h1 span:hover {
+    animation: name-wiggle 0.5s ease-in-out;
+}
+
+@keyframes name-wiggle {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        transform: translateX(-5px) rotate(-2deg);
+    }
+
+    50% {
+        transform: translateX(5px) rotate(2deg);
+    }
+
+    75% {
+        transform: translateX(-3px) rotate(-1deg);
+    }
 }
 
 .home-page .subtitle {
@@ -209,7 +233,7 @@
 
 .home-page .section-label {
     margin-bottom: 1.2rem;
-    color: var(--home-coral);
+    color: var(--home-green);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -228,7 +252,7 @@
 
 .home-page .bio h2 em,
 .home-page .footer h2 em {
-    color: var(--home-coral);
+    color: var(--home-blue);
     font-style: normal;
 }
 
