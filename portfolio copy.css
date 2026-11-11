@@ -1,0 +1,1798 @@
+
+/* ==========================================
+   1. COLOR PALETTE & DESIGN VARIABLES
+========================================== */
+
+:root {
+    /* Main colors */
+    --cream: #F5F0E8;
+    --paper: #FFFCF7;
+    --black: #292725;
+    --burgundy: #813D50;
+
+    /* Playful accent colors */
+    --pink: #E6A6B5;
+    --yellow: #E4BD55;
+    --blue: #759ABF;
+    --green: #789B79;
+    --red: #C65B50;
+
+    /* Fonts */
+    --font-main: 'Space Grotesk', sans-serif;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+
+    /* Spacing */
+    --small: 0.5rem;
+    --medium: 1rem;
+    --large: 2rem;
+    --extra-large: 4rem;
+
+    /* Rounded corners */
+    --radius: 12px;
+}
+
+
+/* ==========================================
+   2. RESET & GENERAL STYLING
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--cream);
+    color: var(--black);
+    line-height: 1.7;
+    padding: 2rem;
+
+    /* Subtle paper-like texture */
+    background-image:
+        radial-gradient(
+            rgba(129, 61, 80, 0.12) 0.6px,
+            transparent 0.6px
+        );
+
+    background-size: 8px 8px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================
+   3. HEADER
+========================================== */
+
+.header {
+    padding: 3rem 0 2rem;
+}
+
+.eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--burgundy);
+    margin-bottom: 1.5rem;
+}
+
+.star {
+    color: var(--yellow);
+    font-size: 1.1rem;
+    margin: 0 0.5rem;
+}
+
+.header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    font-weight: 500;
+    line-height: 0.85;
+    color: var(--burgundy);
+    letter-spacing: -3px;
+}
+
+.header h1 span {
+    font-style: italic;
+    padding-left: 5rem;
+}
+
+.subtitle {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   4. COLORFUL DECORATIVE LINE
+========================================== */
+
+.color-line {
+    display: flex;
+    gap: 6px;
+    margin-top: 2rem;
+    height: 7px;
+    max-width: 300px;
+}
+
+.color-line span {
+    flex: 1;
+    border-radius: 10px;
+}
+
+.pink {
+    background-color: var(--pink);
+}
+
+.yellow {
+    background-color: var(--yellow);
+}
+
+.blue {
+    background-color: var(--blue);
+}
+
+.green {
+    background-color: var(--green);
+}
+
+.red {
+    background-color: var(--red);
+}
+
+.burgundy {
+    background-color: var(--burgundy);
+}
+
+
+/* ==========================================
+   5. NAVIGATION
+========================================== */
+
+.main-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(41, 39, 37, 0.2);
+    border-bottom: 1px solid rgba(41, 39, 37, 0.2);
+}
+
+.button {
+    text-decoration: none;
+    color: var(--black);
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    color: var(--burgundy);
+    background-color: var(--paper);
+    border-color: var(--pink);
+    transform: translateY(-3px);
+}
+
+.button:focus-visible,
+.text-link:focus-visible,
+.social-links a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+
+/* ==========================================
+   6. INTRODUCTION / ABOUT SECTION
+========================================== */
+
+.intro {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 5rem;
+    padding: 5rem 2rem;
+}
+
+
+/* Photo positioning */
+
+.photo-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.photo-frame {
+    position: relative;
+    z-index: 2;
+    background-color: var(--paper);
+    padding: 12px 12px 35px;
+    transform: rotate(-3deg);
+    box-shadow:
+        5px 15px 30px rgba(41, 39, 37, 0.16);
+
+    transition: transform 0.4s ease;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) translateY(-8px);
+}
+
+.headshot {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: 430px;
+    object-fit: cover;
+}
+
+.photo-frame figcaption {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    text-align: center;
+    padding-top: 8px;
+    color: var(--burgundy);
+}
+
+
+/* Decorative shape behind photo */
+
+.photo-decoration {
+    position: absolute;
+    width: 260px;
+    height: 340px;
+    background-color: var(--pink);
+    border-radius: 50% 50% 10% 10%;
+    transform: rotate(8deg);
+    top: 5%;
+    left: 10%;
+}
+
+
+/* Small photo label */
+
+.photo-note {
+    position: absolute;
+    z-index: 3;
+    right: -5px;
+    bottom: 15%;
+    background-color: var(--yellow);
+    color: var(--black);
+    padding: 0.6rem 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transform: rotate(5deg);
+}
+
+
+/* Biography */
+
+.section-label {
+    color: var(--burgundy);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.bio h2,
+.interests h2,
+.footer h2 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--burgundy);
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
+}
+
+.bio h2 em,
+.footer h2 em {
+    color: var(--red);
+}
+
+.bio p:not(.section-label) {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: #514B47;
+}
+
+
+/* Biography link */
+
+.text-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--burgundy);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--burgundy);
+    padding-bottom: 4px;
+}
+
+.text-link span {
+    margin-left: 8px;
+}
+
+.text-link:hover {
+    color: var(--red);
+}
+
+
+/* ==========================================
+   7. INTERESTS SECTION
+========================================== */
+
+.interests {
+    margin: 2rem 0 5rem;
+    padding: 3rem;
+    background-color: var(--paper);
+    border-radius: var(--radius);
+}
+
+.interests-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.interests-content p {
+    font-size: 0.95rem;
+    color: #514B47;
+    max-width: 450px;
+}
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.tag {
+    padding: 0.6rem 1rem;
+    border-radius: 30px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--black);
+    transition: transform 0.3s ease;
+}
+
+.tag:hover {
+    transform: rotate(-3deg) translateY(-3px);
+}
+
+.tag-pink {
+    background-color: var(--pink);
+}
+
+.tag-yellow {
+    background-color: var(--yellow);
+}
+
+.tag-blue {
+    background-color: var(--blue);
+}
+
+.tag-green {
+    background-color: var(--green);
+}
+
+.tag-red {
+    background-color: var(--red);
+}
+
+
+/* ==========================================
+   8. CUSTOM FOOTER
+========================================== */
+
+.footer {
+    margin-top: 3rem;
+    padding: 3rem 0 1rem;
+    border-top: 2px solid var(--burgundy);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.footer h2 {
+    font-size: 3.5rem;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    min-width: 180px;
+    color: var(--black);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(41, 39, 37, 0.3);
+    padding-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--burgundy);
+    padding-left: 8px;
+}
+
+.social-links a span {
+    color: var(--red);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 1px solid rgba(41, 39, 37, 0.2);
+    padding-top: 1.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.footer-star {
+    color: var(--red);
+    padding: 0 0.4rem;
+}
+
+
+/* ==========================================
+   9. MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 1rem;
+    }
+
+    .header {
+        padding-top: 2rem;
+    }
+
+    .header h1 {
+        font-size: clamp(3.5rem, 13vw, 5rem);
+    }
+
+    .header h1 span {
+        padding-left: 2rem;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .main-nav {
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    .button {
+        font-size: 0.75rem;
+        padding: 0.5rem 0.7rem;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 0.5rem;
+    }
+
+    .photo-area {
+        padding: 2rem;
+    }
+
+    .headshot {
+        max-width: 300px;
+        height: 380px;
+    }
+
+    .photo-decoration {
+        width: 220px;
+        height: 300px;
+    }
+
+    .photo-note {
+        right: 0;
+    }
+
+    .interests {
+        padding: 2rem 1.5rem;
+    }
+
+    .interests-content {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .social-links {
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+
+/* Smaller phones */
+
+@media (max-width: 400px) {
+
+    .eyebrow {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .headshot {
+        height: 330px;
+    }
+
+    .bio h2 {
+        font-size: 2.2rem;
+    }
+
+    .interest-tags {
+        gap: 0.5rem;
+    }
+
+    .tag {
+        font-size: 0.6rem;
+    }
+}
+/* =========================================
+   ARTIST PAGE
+   ========================================= */
+
+.artist-page {
+    background: #FFF4DF;
+    color: #292725;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.artist-page a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* NAVIGATION */
+
+.artist-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 7%;
+}
+
+.artist-logo {
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.artist-logo span {
+    color: #F07855;
+    margin-left: 5px;
+}
+
+.artist-home {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+/* HERO SECTION */
+
+.artist-hero {
+    position: relative;
+    overflow: hidden;
+    background: #F5A6C8;
+    margin: 10px 5% 80px;
+    padding: 85px 9%;
+    border-radius: 30px;
+}
+
+.artist-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.artist-hero h1 {
+    max-width: 850px;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin: 0 0 25px;
+    font-weight: 800;
+}
+
+.artist-hero h1 span {
+    display: block;
+    color: #813D50;
+}
+
+.artist-intro {
+    max-width: 480px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.artist-button {
+    display: inline-block;
+    background: #FFF4DF;
+    color: #292725;
+    padding: 15px 24px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.artist-button:hover {
+    transform: translateY(-5px) rotate(-2deg);
+    box-shadow: 0 8px 0 rgba(41, 39, 37, 0.15);
+}
+
+.artist-decoration {
+    position: absolute;
+    font-size: 7rem;
+    pointer-events: none;
+}
+
+.artist-decoration-one {
+    right: 10%;
+    top: 15%;
+    color: #F6D94A;
+    transform: rotate(15deg);
+}
+
+.artist-decoration-two {
+    right: 22%;
+    bottom: 10%;
+    color: #78B9E8;
+    font-size: 4rem;
+}
+
+
+/* ARTWORK SECTION */
+
+.artist-work {
+    padding: 20px 7% 90px;
+}
+
+.artist-section-heading {
+    margin-bottom: 35px;
+}
+
+.artist-section-heading h2,
+.artist-journal h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    letter-spacing: -2px;
+    margin: 0 0 12px;
+    font-weight: 800;
+}
+
+.artist-section-heading h2 span,
+.artist-journal h2 span {
+    color: #F07855;
+}
+
+.artist-section-heading > p:last-child,
+.artist-journal p:last-child {
+    line-height: 1.7;
+}
+
+
+/* GALLERY GRID */
+
+.artist-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.artist-card {
+    display: block;
+    padding: 15px;
+    border-radius: 24px;
+    transition: transform 0.25s ease;
+}
+
+.artist-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+}
+
+.card-blue {
+    background: #78B9E8;
+}
+
+.card-yellow {
+    background: #F6D94A;
+}
+
+.card-green {
+    background: #77C9A5;
+}
+
+.card-coral {
+    background: #F07855;
+}
+
+
+/* TEMPORARY ARTWORK PLACEHOLDERS */
+
+.artist-card-image {
+    min-height: 260px;
+    border-radius: 15px;
+    background: rgba(255, 244, 223, 0.65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.artist-card-image span {
+    font-size: 4rem;
+}
+
+.artist-card-image p {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* CARD TITLES */
+
+.artist-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5px 5px;
+}
+
+.artist-card-info h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.artist-card-info span {
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+
+/* COMMISSIONS */
+
+.artist-commissions {
+    background: #F5A6C8;
+    margin: 20px 5% 90px;
+    padding: 65px 8%;
+    border-radius: 30px;
+}
+
+.artist-commissions h2 {
+    max-width: 650px;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin: 0 0 20px;
+}
+
+.artist-commissions > p:not(.artist-eyebrow) {
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.artist-button-dark {
+    background: #292725;
+    color: #FFF4DF !important;
+}
+
+
+/* JOURNAL */
+
+.artist-journal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 7% 90px;
+}
+
+.artist-journal-link {
+    font-weight: 800;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+
+/* FOOTER */
+
+.artist-footer {
+    background: #292725;
+    color: #FFF4DF;
+    padding: 35px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.8rem;
+}
+
+.artist-footer a {
+    color: #F5A6C8;
+    font-weight: 700;
+}
+
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 650px) {
+
+    .artist-nav {
+        padding: 20px 6%;
+    }
+
+    .artist-hero {
+        margin: 5px 3% 55px;
+        padding: 55px 7%;
+    }
+
+    .artist-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .artist-decoration {
+        opacity: 0.4;
+    }
+
+    .artist-work {
+        padding: 10px 5% 60px;
+    }
+
+    .artist-gallery {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .artist-card-image {
+        min-height: 220px;
+    }
+
+    .artist-commissions {
+        margin: 10px 3% 60px;
+        padding: 45px 7%;
+    }
+
+    .artist-journal {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 6% 60px;
+    }
+
+    .artist-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+/* ========================================
+   NEW PLAYFUL NAVIGATION
+======================================== */
+
+/* The main floating navigation bar */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: fit-content;
+    max-width: 95%;
+    margin: 25px auto 40px;
+    padding: 12px 18px;
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 50px;
+    box-shadow: 5px 5px 0 #222222;
+    position: relative;
+    z-index: 100;
+}
+
+/* Individual navigation buttons */
+.main-nav .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 11px 17px;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    background-color: transparent;
+    color: #222222;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Button hover effect */
+.main-nav .button:hover {
+    background-color: #F5A6C8;
+    transform: translateY(-3px) rotate(-2deg);
+}
+
+/* Make ART stand out */
+.main-nav .nav-art {
+    background-color: #F07855;
+    color: #222222;
+    border: 2px solid #222222;
+}
+
+.main-nav .nav-art:hover {
+    background-color: #F6D94A;
+    transform: translateY(-4px) rotate(2deg);
+}
+
+/* Dropdown container */
+.nav-dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    padding: 10px;
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 #222222;
+    z-index: 200;
+}
+
+/* Show dropdown on hover or keyboard focus */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+    display: block;
+}
+
+/* Individual dropdown links */
+.nav-dropdown-menu a {
+    display: block;
+    padding: 10px 12px;
+    color: #222222;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus {
+    background-color: #77C9A5;
+    padding-left: 17px;
+}
+
+/* Mobile navigation */
+@media (max-width: 650px) {
+    .main-nav {
+        width: 90%;
+        max-width: none;
+        gap: 6px;
+        padding: 10px;
+        border-radius: 25px;
+    }
+
+    .main-nav .button {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .nav-dropdown-menu {
+        min-width: 160px;
+    }
+}
+
+/* ========================================
+   CONTACT PAGE — PLAYFUL STUDIO STYLE
+======================================== */
+
+.contact-page {
+    background-color: #FFF4DF;
+    color: #222222;
+}
+
+/* CONTACT INTRO */
+
+.contact-hero {
+    position: relative;
+    max-width: 850px;
+    margin: 65px auto 55px;
+    padding: 50px 30px;
+    text-align: center;
+    background-color: #F5A6C8;
+    border: 3px solid #222222;
+    border-radius: 35px;
+    box-shadow: 8px 8px 0 #222222;
+    overflow: hidden;
+}
+
+.contact-eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 9px 16px;
+    background-color: #F6D94A;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.contact-hero h1 {
+    margin: 0 0 20px;
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.contact-intro {
+    max-width: 570px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+.contact-decoration {
+    position: absolute;
+    right: 35px;
+    bottom: 15px;
+    color: #F07855;
+    font-size: 5rem;
+    transform: rotate(15deg);
+}
+
+
+/* CONTACT FORM CARD */
+
+.contact-content {
+    max-width: 760px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.contact-card {
+    padding: 45px;
+    background-color: #FFFFFF;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 8px 8px 0 #222222;
+}
+
+.contact-card-heading {
+    margin-bottom: 35px;
+}
+
+.contact-label {
+    display: inline-block;
+    padding: 8px 14px;
+    background-color: #77C9A5;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.contact-card-heading h2 {
+    margin: 18px 0 10px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.contact-card-heading p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+
+/* FORM FIELDS */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form label {
+    margin-top: 12px;
+    font-weight: 800;
+    font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px 17px;
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #222222;
+    transition: all 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background-color: #E7F5EE;
+    border-color: #77C9A5;
+    box-shadow: 0 0 0 4px rgba(119, 201, 165, 0.25);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777777;
+}
+
+
+/* SEND BUTTON */
+
+.contact-submit {
+    align-self: flex-start;
+    margin-top: 20px;
+    padding: 16px 25px;
+    background-color: #F07855;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    box-shadow: 4px 4px 0 #222222;
+    color: #222222;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.contact-submit:hover {
+    background-color: #F6D94A;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #222222;
+}
+
+
+/* DIRECT EMAIL OPTION */
+
+.contact-alternative {
+    margin-top: 45px;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+.contact-alternative a {
+    display: inline-block;
+    margin-top: 5px;
+    color: #222222;
+    font-weight: 900;
+    text-decoration-color: #F07855;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+    transition: all 0.2s ease;
+}
+
+.contact-alternative a:hover {
+    color: #F07855;
+}
+
+
+/* FOOTER */
+
+.contact-footer {
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   LARGER SHARED NAVIGATION
+   Applies across ALL website pages
+======================================== */
+
+.main-nav {
+    gap: 15px;
+    padding: 15px 22px;
+    margin-top: 35px;
+    margin-bottom: 45px;
+}
+
+.main-nav .button {
+    padding: 13px 20px;
+    font-size: 1.05rem;
+}
+
+
+/* MOBILE CONTACT PAGE */
+
+@media (max-width: 650px) {
+
+    .contact-hero {
+        margin: 35px 18px 40px;
+        padding: 40px 20px;
+    }
+
+    .contact-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .contact-intro {
+        font-size: 1rem;
+    }
+
+    .contact-decoration {
+        right: 12px;
+        bottom: 5px;
+        font-size: 3rem;
+    }
+
+    .contact-content {
+        padding: 0 15px;
+    }
+
+    .contact-card {
+        padding: 28px 20px;
+    }
+
+    .contact-submit {
+        align-self: stretch;
+    }
+
+    .main-nav {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .main-nav .button {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   EXPERIENCE PAGE — CREATIVE PORTFOLIO
+======================================== */
+
+.experience-page {
+    background-color: #FFF4DF;
+    color: #222222;
+}
+
+/* BACK TO HOME NAVIGATION */
+
+.experience-page .artist-nav {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 25px;
+}
+
+.experience-page .artist-home {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 21px;
+    background-color: #F6D94A;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    box-shadow: 4px 4px 0 #222222;
+    color: #222222;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.experience-page .artist-home:hover {
+    background-color: #F5A6C8;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #222222;
+}
+
+
+/* HERO INTRODUCTION */
+
+.experience-hero {
+    position: relative;
+    max-width: 1000px;
+    margin: 55px auto 85px;
+    padding: 65px 45px;
+    text-align: center;
+    background-color: #F5A6C8;
+    border: 3px solid #222222;
+    border-radius: 35px;
+    box-shadow: 9px 9px 0 #222222;
+    overflow: hidden;
+}
+
+.experience-eyebrow,
+.experience-label {
+    display: inline-block;
+    padding: 9px 16px;
+    background-color: #F6D94A;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.experience-hero h1 {
+    margin: 25px 0;
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    font-weight: 900;
+}
+
+.experience-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    line-height: 1.7;
+}
+
+.experience-decoration {
+    position: absolute;
+    right: 35px;
+    bottom: 10px;
+    color: #F07855;
+    font-size: 5rem;
+    transform: rotate(15deg);
+}
+
+
+/* MAIN CONTENT */
+
+.experience-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+
+/* ABOUT SECTION */
+
+.experience-about {
+    max-width: 780px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    background-color: #FFFFFF;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 7px 7px 0 #222222;
+}
+
+.experience-about h2 {
+    margin: 20px 0;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+    font-weight: 900;
+}
+
+.experience-about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+
+/* EXPERIENCE SECTION HEADING */
+
+.experience-section-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.experience-section-heading h2,
+.experience-education > h2,
+.experience-skills > h2,
+.experience-languages h2 {
+    margin: 18px 0 10px;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.experience-section-heading p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+/* EXPERIENCE CARDS */
+
+.experience-work {
+    margin-bottom: 100px;
+}
+
+.experience-card {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: stretch;
+    margin: 35px 0 55px;
+    border: 3px solid #222222;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 #222222;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 11px 11px 0 #222222;
+}
+
+/* Alternating image and text positions */
+
+.experience-card:nth-of-type(even) {
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+.experience-card:nth-of-type(even) .experience-card-image {
+    order: 2;
+}
+
+.experience-card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    padding: 25px;
+    background-color: #E8E8E8;
+    text-align: center;
+}
+
+.experience-card-image span {
+    padding: 12px 17px;
+    background-color: #FFF4DF;
+    border: 2px dashed #222222;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.experience-card-info {
+    padding: 40px;
+    background-color: #FFFFFF;
+}
+
+.experience-date {
+    display: inline-block;
+    margin: 0 0 12px;
+    padding: 7px 12px;
+    background-color: #FFF4DF;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+}
+
+.experience-card-info h3 {
+    margin: 5px 0 12px;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.experience-organization {
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.experience-card-info > p:not(.experience-date):not(.experience-organization) {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.experience-card-info ul {
+    padding-left: 22px;
+    line-height: 1.8;
+}
+
+.experience-card-info li {
+    margin-bottom: 5px;
+}
+
+
+/* CARD COLOR THEMES */
+
+.experience-green .experience-card-image {
+    background-color: #77C9A5;
+}
+
+.experience-pink .experience-card-image {
+    background-color: #F5A6C8;
+}
+
+.experience-yellow .experience-card-image {
+    background-color: #F6D94A;
+}
+
+.experience-blue .experience-card-image {
+    background-color: #78B9E8;
+}
+
+.experience-coral .experience-card-image {
+    background-color: #F07855;
+}
+
+
+/* SKILL TAGS */
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.experience-tags span {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #FFF4DF;
+    border: 1.5px solid #222222;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+
+/* EDUCATION */
+
+.experience-education {
+    margin: 100px 0;
+    text-align: center;
+}
+
+.education-card {
+    display: inline-block;
+    width: 38%;
+    min-width: 260px;
+    margin: 20px 10px;
+    padding: 30px;
+    vertical-align: top;
+    background-color: #F6D94A;
+    border: 3px solid #222222;
+    border-radius: 25px;
+    box-shadow: 6px 6px 0 #222222;
+    text-align: left;
+}
+
+.education-card h3 {
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.education-card p {
+    line-height: 1.7;
+}
+
+
+/* SKILLS */
+
+.experience-skills {
+    margin: 100px 0;
+    padding: 45px;
+    background-color: #78B9E8;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 7px 7px 0 #222222;
+}
+
+.experience-skill-group {
+    margin-top: 30px;
+}
+
+.experience-skill-group h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+}
+
+
+/* LANGUAGES */
+
+.experience-languages {
+    max-width: 650px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #77C9A5;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 7px 7px 0 #222222;
+    text-align: center;
+}
+
+.experience-languages p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+
+/* CONTACT INVITATION */
+
+.experience-contact {
+    margin: 100px 0 70px;
+    padding: 55px 30px;
+    background-color: #F07855;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 8px 8px 0 #222222;
+    text-align: center;
+}
+
+.experience-contact h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+}
+
+.experience-contact p {
+    font-size: 1.1rem;
+}
+
+.experience-contact a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 23px;
+    background-color: #F6D94A;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    box-shadow: 4px 4px 0 #222222;
+    color: #222222;
+    font-weight: 900;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.experience-contact a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #222222;
+}
+
+
+/* FOOTER */
+
+.experience-footer {
+    padding: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+
+/* MOBILE EXPERIENCE PAGE */
+
+@media (max-width: 750px) {
+
+    .experience-hero {
+        margin: 35px 18px 65px;
+        padding: 45px 22px;
+    }
+
+    .experience-hero h1 {
+        letter-spacing: -1px;
+    }
+
+    .experience-intro {
+        font-size: 1rem;
+    }
+
+    .experience-decoration {
+        right: 12px;
+        font-size: 3rem;
+    }
+
+    .experience-about {
+        padding: 30px 23px;
+        margin-bottom: 70px;
+    }
+
+    .experience-card,
+    .experience-card:nth-of-type(even) {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-card:nth-of-type(even) .experience-card-image {
+        order: 0;
+    }
+
+    .experience-card-image {
+        min-height: 250px;
+    }
+
+    .experience-card-info {
+        padding: 28px 23px;
+    }
+
+    .experience-skills {
+        padding: 30px 22px;
+    }
+
+    .experience-contact {
+        padding: 40px 22px;
+    }
+
+    .education-card {
+        width: auto;
+        display: block;
+        margin: 20px 0;
+    }
+
+    .experience-page .artist-nav {
+        margin: 20px 18px;
+    }
+}
+
+
