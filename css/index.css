@@ -1,0 +1,490 @@
+
+/* ========================================
+   HOMEPAGE — PLAYFUL CREATIVE PORTFOLIO
+======================================== */
+
+/* PAGE BACKGROUND */
+
+.home-page {
+    --home-cream: #FFF4DF;
+    --home-pink: #F5A6C8;
+    --home-yellow: #F6D94A;
+    --home-green: #77C9A5;
+    --home-blue: #78B9E8;
+    --home-coral: #F07855;
+    --home-ink: #222222;
+
+    padding: 2rem;
+    background-color: var(--home-cream);
+    background-image: radial-gradient(
+        rgba(34, 34, 34, 0.10) 0.7px,
+        transparent 0.7px
+    );
+    background-size: 9px 9px;
+    color: var(--home-ink);
+}
+
+/* KEEP HOMEPAGE CONTENT CENTERED */
+
+.home-page .container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.home-page .header {
+    padding: 3.5rem 1rem 1.5rem;
+    text-align: center;
+}
+
+.home-page .eyebrow {
+    margin-bottom: 1.5rem;
+    color: var(--home-ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.home-page .star {
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: var(--home-coral);
+    font-size: 1.2rem;
+}
+
+.home-page .header h1 {
+    color: var(--home-ink);
+    font-family: var(--font-main);
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 700;
+    line-height: 0.88;
+    letter-spacing: -7px;
+}
+
+.home-page .header h1 span {
+    display: inline-block;
+    padding-left: 0;
+    color: var(--home-coral);
+    font-style: normal;
+    transform: rotate(-3deg);
+}
+
+.home-page .subtitle {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ========================================
+   COLORFUL DECORATIVE LINE
+======================================== */
+
+.home-page .color-line {
+    display: flex;
+    gap: 7px;
+    width: 100%;
+    max-width: 360px;
+    height: 10px;
+    margin: 2rem auto 0;
+}
+
+.home-page .color-line span {
+    flex: 1;
+    border-radius: 20px;
+}
+
+.home-page .pink {
+    background-color: var(--home-pink);
+}
+
+.home-page .yellow {
+    background-color: var(--home-yellow);
+}
+
+.home-page .blue {
+    background-color: var(--home-blue);
+}
+
+.home-page .green {
+    background-color: var(--home-green);
+}
+
+.home-page .red {
+    background-color: var(--home-coral);
+}
+
+.home-page .burgundy {
+    background-color: var(--home-ink);
+}
+
+/* ========================================
+   INTRODUCTION / ABOUT
+======================================== */
+
+.home-page .intro {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 5rem;
+    padding: 5rem 2rem;
+}
+
+/* PHOTO */
+
+.home-page .photo-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.home-page .photo-decoration {
+    position: absolute;
+    top: 5%;
+    left: 8%;
+    width: 270px;
+    height: 350px;
+    border-radius: 45% 55% 40% 60%;
+    background-color: var(--home-pink);
+    transform: rotate(8deg);
+}
+
+.home-page .photo-frame {
+    position: relative;
+    z-index: 2;
+    padding: 12px 12px 35px;
+    border: 2px solid var(--home-ink);
+    border-radius: 18px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 8px 0 var(--home-ink);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+.home-page .photo-frame:hover {
+    transform: rotate(0deg) translateY(-7px);
+}
+
+.home-page .headshot {
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    height: 430px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.home-page .photo-frame figcaption {
+    padding-top: 12px;
+    color: var(--home-ink);
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.home-page .photo-note {
+    position: absolute;
+    right: -5px;
+    bottom: 15%;
+    z-index: 3;
+    padding: 0.7rem 1rem;
+    border: 2px solid var(--home-ink);
+    border-radius: 8px;
+    background-color: var(--home-yellow);
+    color: var(--home-ink);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    transform: rotate(5deg);
+}
+
+/* BIOGRAPHY */
+
+.home-page .section-label {
+    margin-bottom: 1.2rem;
+    color: var(--home-coral);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.home-page .bio h2,
+.home-page .interests h2,
+.home-page .footer h2 {
+    margin-bottom: 1.5rem;
+    color: var(--home-ink);
+    font-family: var(--font-main);
+    font-size: clamp(2.3rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.home-page .bio h2 em,
+.home-page .footer h2 em {
+    color: var(--home-coral);
+    font-style: normal;
+}
+
+.home-page .bio p:not(.section-label) {
+    margin-bottom: 1rem;
+    color: #494541;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.home-page .text-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--home-coral);
+    color: var(--home-ink);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.home-page .text-link span {
+    margin-left: 8px;
+}
+
+.home-page .text-link:hover {
+    color: var(--home-coral);
+    transform: translateX(4px);
+}
+
+/* ========================================
+   INTERESTS SECTION
+======================================== */
+
+.home-page .interests {
+    margin: 2rem 0 5rem;
+    padding: 3.5rem;
+    border: 2px solid var(--home-ink);
+    border-radius: 28px;
+    background-color: var(--home-yellow);
+    box-shadow: 8px 8px 0 var(--home-ink);
+}
+
+.home-page .interests .section-label {
+    color: var(--home-ink);
+}
+
+.home-page .interests-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.home-page .interests h2 {
+    margin-bottom: 0;
+}
+
+.home-page .interests-content p {
+    max-width: 450px;
+    color: var(--home-ink);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.home-page .interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.home-page .tag {
+    padding: 0.7rem 1.1rem;
+    border: 2px solid var(--home-ink);
+    border-radius: 30px;
+    color: var(--home-ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease;
+}
+
+.home-page .tag:hover {
+    transform: rotate(-3deg) translateY(-4px);
+}
+
+.home-page .tag-pink {
+    background-color: var(--home-pink);
+}
+
+.home-page .tag-yellow {
+    background-color: #FFFFFF;
+}
+
+.home-page .tag-blue {
+    background-color: var(--home-blue);
+}
+
+.home-page .tag-green {
+    background-color: var(--home-green);
+}
+
+.home-page .tag-red {
+    background-color: var(--home-coral);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.home-page .footer {
+    margin-top: 3rem;
+    padding: 3rem 0 1rem;
+    border-top: 2px solid var(--home-ink);
+}
+
+.home-page .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 3rem;
+}
+
+.home-page .footer h2 {
+    font-size: 3.5rem;
+}
+
+.home-page .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-page .social-links a {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    min-width: 180px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.3);
+    color: var(--home-ink);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.home-page .social-links a:hover {
+    padding-left: 8px;
+    color: var(--home-coral);
+}
+
+.home-page .social-links a span,
+.home-page .footer-star {
+    color: var(--home-coral);
+}
+
+.home-page .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(34, 34, 34, 0.2);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.home-page .footer-star {
+    padding: 0 0.4rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .home-page {
+        padding: 1rem;
+    }
+
+    .home-page .header {
+        padding-top: 2rem;
+    }
+
+    .home-page .header h1 {
+        font-size: clamp(3.5rem, 13vw, 5.5rem);
+        letter-spacing: -4px;
+    }
+
+    .home-page .subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+    }
+
+    .home-page .intro {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 3rem 0.5rem;
+    }
+
+    .home-page .headshot {
+        max-width: 300px;
+        height: 380px;
+    }
+
+    .home-page .photo-decoration {
+        width: 220px;
+        height: 300px;
+    }
+
+    .home-page .interests {
+        padding: 2rem 1.5rem;
+    }
+
+    .home-page .interests-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .home-page .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .home-page .social-links {
+        width: 100%;
+    }
+
+    .home-page .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    .home-page .eyebrow {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+    }
+
+    .home-page .headshot {
+        height: 330px;
+    }
+
+    .home-page .bio h2 {
+        font-size: 2.2rem;
+    }
+
+    .home-page .interest-tags {
+        gap: 0.5rem;
+    }
+
+    .home-page .tag {
+        font-size: 0.6rem;
+    }
+}
