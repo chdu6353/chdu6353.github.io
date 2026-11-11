@@ -1,0 +1,285 @@
+
+/* ==========================================
+   LIFE & INTERESTS — SHARED PAGE DESIGN
+========================================== */
+
+.interest-page {
+    background-color: #FFF4DF;
+    color: #222222;
+}
+
+/* ==========================================
+   PAGE WRAPPER
+========================================== */
+
+.interest-page .interest-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   COLORFUL INTRODUCTION
+========================================== */
+
+.interest-hero {
+    position: relative;
+    overflow: hidden;
+
+    margin: 30px auto 65px;
+    padding: 70px 55px;
+
+    background-color: #77C9A5;
+    border: 3px solid #222222;
+    border-radius: 35px;
+    box-shadow: 8px 8px 0 #222222;
+}
+
+.interest-page.food-page .interest-hero {
+    background-color: #F6D94A;
+}
+
+.interest-page.gardening-page .interest-hero {
+    background-color: #77C9A5;
+}
+
+.interest-page.hobbies-page .interest-hero {
+    background-color: #F5A6C8;
+}
+
+.interest-page.sports-page .interest-hero {
+    background-color: #78B9E8;
+}
+
+.interest-eyebrow {
+    display: inline-block;
+    margin-bottom: 22px;
+    padding: 8px 15px;
+
+    background-color: #FFF4DF;
+    border: 2px solid #222222;
+    border-radius: 30px;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.interest-hero h1 {
+    max-width: 800px;
+    margin-bottom: 24px;
+
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -2px;
+}
+
+.interest-intro {
+    max-width: 650px;
+
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+.interest-decoration {
+    position: absolute;
+    right: 30px;
+    bottom: 5px;
+
+    color: #F07855;
+    font-size: 5rem;
+    line-height: 1;
+
+    transform: rotate(15deg);
+    pointer-events: none;
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.interest-content {
+    max-width: 900px;
+    margin: 0 auto 85px;
+}
+
+.interest-card {
+    padding: 45px;
+
+    background-color: #FFFFFF;
+    border: 3px solid #222222;
+    border-radius: 30px;
+    box-shadow: 7px 7px 0 #222222;
+}
+
+.interest-label {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 14px;
+
+    background-color: #F07855;
+    border: 2px solid #222222;
+    border-radius: 30px;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.interest-card h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.interest-card p {
+    max-width: 650px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   LINKS TO OTHER INTERESTS
+========================================== */
+
+.interest-explore {
+    margin-top: 45px;
+}
+
+.interest-explore h2 {
+    margin-bottom: 20px;
+    font-size: clamp(1.6rem, 4vw, 2.3rem);
+    line-height: 1.2;
+}
+
+.interest-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.interest-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 11px 18px;
+
+    background-color: #F5A6C8;
+    border: 2px solid #222222;
+    border-radius: 30px;
+    box-shadow: 3px 3px 0 #222222;
+
+    color: #222222;
+    font-weight: 800;
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.interest-links a:nth-child(2) {
+    background-color: #F6D94A;
+}
+
+.interest-links a:nth-child(3) {
+    background-color: #78B9E8;
+}
+
+.interest-links a:nth-child(4) {
+    background-color: #77C9A5;
+}
+
+.interest-links a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 #222222;
+}
+
+.interest-links a:focus-visible {
+    outline: 3px solid #759ABF;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.interest-footer {
+    padding: 30px 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ==========================================
+   MOBILE LAYOUT
+========================================== */
+
+@media (max-width: 768px) {
+    .interest-page {
+        padding: 12px;
+    }
+
+    .interest-hero {
+        margin: 20px auto 45px;
+        padding: 45px 28px;
+        border-radius: 25px;
+        box-shadow: 5px 5px 0 #222222;
+    }
+
+    .interest-hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+        letter-spacing: -1px;
+    }
+
+    .interest-intro {
+        font-size: 1rem;
+    }
+
+    .interest-decoration {
+        right: 12px;
+        bottom: 8px;
+        font-size: 3rem;
+        opacity: 0.45;
+    }
+
+    .interest-content {
+        margin-bottom: 50px;
+    }
+
+    .interest-card {
+        padding: 30px 24px;
+        border-radius: 24px;
+        box-shadow: 5px 5px 0 #222222;
+    }
+}
+
+@media (max-width: 400px) {
+    .interest-page {
+        padding: 8px;
+    }
+
+    .interest-hero {
+        padding: 36px 20px;
+    }
+
+    .interest-card {
+        padding: 25px 18px;
+    }
+
+    .interest-links {
+        gap: 10px;
+    }
+
+    .interest-links a {
+        padding: 10px 13px;
+        font-size: 0.9rem;
+    }
+}

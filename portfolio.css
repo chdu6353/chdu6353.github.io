@@ -4,42 +4,41 @@
 ========================================== */
 
 :root {
-    /* Main colors */
     --cream: #F5F0E8;
     --paper: #FFFCF7;
     --black: #292725;
     --burgundy: #813D50;
 
-    /* Playful accent colors */
     --pink: #E6A6B5;
     --yellow: #E4BD55;
     --blue: #759ABF;
     --green: #789B79;
     --red: #C65B50;
 
-    /* Fonts */
     --font-main: 'Space Grotesk', sans-serif;
     --font-display: 'Cormorant Garamond', Georgia, serif;
 
-    /* Spacing */
     --small: 0.5rem;
     --medium: 1rem;
     --large: 2rem;
     --extra-large: 4rem;
 
-    /* Rounded corners */
     --radius: 12px;
 }
-
 
 /* ==========================================
    2. RESET & GENERAL STYLING
 ========================================== */
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
@@ -47,91 +46,108 @@ html {
 }
 
 body {
+    min-width: 0;
+    padding: 2rem;
     font-family: var(--font-main);
     background-color: var(--cream);
     color: var(--black);
     line-height: 1.7;
-    padding: 2rem;
+    overflow-wrap: break-word;
 
-    /* Subtle paper-like texture */
     background-image:
         radial-gradient(
             rgba(129, 61, 80, 0.12) 0.6px,
             transparent 0.6px
         );
-
     background-size: 8px 8px;
 }
 
+img,
+video {
+    max-width: 100%;
+}
+
 .container {
+    width: 100%;
     max-width: 1150px;
-    margin: 0 auto;
+    margin-inline: auto;
+    min-width: 0;
 }
 
 /* ==========================================
-   ACCESSIBILITY — KEYBOARD FOCUS
+   3. ACCESSIBILITY
 ========================================== */
 
 .button:focus-visible,
 .text-link:focus-visible,
-.social-links a:focus-visible {
+.social-links a:focus-visible,
+.artist-home:focus-visible,
+.contact-submit:focus-visible,
+.nav-dropdown-menu a:focus-visible {
     outline: 3px solid var(--blue);
     outline-offset: 4px;
 }
 
-/* ========================================
-   NEW PLAYFUL NAVIGATION
-======================================== */
+/* ==========================================
+   4. SHARED NAVIGATION — DESKTOP
+========================================== */
 
-/* The main floating navigation bar */
 .main-nav {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 15px;
+
     width: fit-content;
-    max-width: 95%;
-    margin: 25px auto 40px;
-    padding: 12px 18px;
+    max-width: 100%;
+    margin: 35px auto 45px;
+    padding: 15px 22px;
+
     background-color: #FFF4DF;
     border: 2px solid #222222;
     border-radius: 50px;
     box-shadow: 5px 5px 0 #222222;
+
     position: relative;
     z-index: 100;
 }
 
-/* Individual navigation buttons */
 .main-nav .button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 11px 17px;
+
+    padding: 13px 20px;
+
+    background-color: transparent;
     border: 2px solid transparent;
     border-radius: 30px;
-    background-color: transparent;
+
     color: #222222;
     font-family: inherit;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
     text-decoration: none;
+
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-/* Button hover effect */
 .main-nav .button:hover {
     background-color: #F5A6C8;
     transform: translateY(-3px) rotate(-2deg);
 }
 
-/* Make ART stand out */
 .main-nav .nav-art {
     background-color: #F07855;
     color: #222222;
-    border: 2px solid #222222;
+    border-color: #222222;
 }
 
 .main-nav .nav-art:hover {
@@ -139,81 +155,213 @@ body {
     transform: translateY(-4px) rotate(2deg);
 }
 
-/* Dropdown container */
+/* ==========================================
+   5. NAVIGATION DROPDOWNS
+========================================== */
+
 .nav-dropdown {
     position: relative;
+    min-width: 0;
 }
 
-/* Dropdown menu */
 .nav-dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 200;
+
     min-width: 180px;
     padding: 10px;
+
     background-color: #FFF4DF;
     border: 2px solid #222222;
     border-radius: 18px;
     box-shadow: 4px 4px 0 #222222;
-    z-index: 200;
 }
 
-/* Show dropdown on hover or keyboard focus */
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
     display: block;
 }
 
-/* Individual dropdown links */
 .nav-dropdown-menu a {
     display: block;
     padding: 10px 12px;
+
     color: #222222;
     border-radius: 10px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease;
+
+    transition:
+        background-color 0.2s ease,
+        padding-left 0.2s ease;
 }
 
 .nav-dropdown-menu a:hover,
-.nav-dropdown-menu a:focus {
+.nav-dropdown-menu a:focus-visible {
     background-color: #77C9A5;
     padding-left: 17px;
 }
 
-/* Mobile navigation */
-@media (max-width: 650px) {
-    .main-nav {
-        width: 90%;
-        max-width: none;
-        gap: 6px;
-        padding: 10px;
-        border-radius: 25px;
+/* ==========================================
+   6. MOBILE PAGE SPACING
+========================================== */
+
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
     }
 
-    .main-nav .button {
-        padding: 9px 12px;
+    /*
+       Homepage and Artist already have
+       their own page-level spacing.
+    */
+    body.home-page,
+    body.artist-page {
+        padding: 0;
+    }
+
+    /*
+       Give Experience and Contact
+       more room on small screens.
+    */
+    body.experience-page,
+    body.contact-page {
+        padding: 12px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    /*
+       Existing Experience page adjustments.
+    */
+    .experience-page .experience-hero {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .experience-page .experience-content {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    .experience-page .artist-nav {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+
+    /*
+       Existing Contact page adjustments.
+    */
+    .contact-page .contact-hero {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .contact-page .contact-content {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
+}
+
+/* ==========================================
+   7. MOBILE NAVIGATION
+   Keep this AFTER desktop navigation.
+========================================== */
+
+@media (max-width: 650px) {
+    .main-nav,
+    .contact-page .main-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: stretch;
+        gap: 9px;
+
+        width: 100%;
+        max-width: 440px;
+        margin: 18px auto 32px;
+        padding: 12px;
+
+        border-radius: 25px;
+        box-shadow: 4px 4px 0 #222222;
+    }
+
+    .main-nav > .button,
+    .main-nav > .nav-dropdown {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .main-nav .button,
+    .contact-page .main-nav .button {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 7px;
+
         font-size: 0.85rem;
+        line-height: 1.3;
+        white-space: normal;
+    }
+
+    /*
+       Contact is the fifth button.
+       Give it its own full-width row.
+    */
+    .main-nav > .button:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .nav-dropdown-toggle {
+        height: 100%;
     }
 
     .nav-dropdown-menu {
-        min-width: 160px;
+        min-width: 100%;
+        max-width: calc(100vw - 36px);
+        padding: 8px;
+    }
+
+    /*
+       Keep the right-hand dropdown
+       inside the screen.
+    */
+    .main-nav > .nav-dropdown:nth-child(4)
+    .nav-dropdown-menu {
+        left: auto;
+        right: 0;
     }
 }
-/* ========================================
-   LARGER SHARED NAVIGATION
-   Applies across ALL website pages
-======================================== */
 
-.main-nav {
-    gap: 15px;
-    padding: 15px 22px;
-    margin-top: 35px;
-    margin-bottom: 45px;
-}
+/* ==========================================
+   8. EXTRA-SMALL SCREENS
+========================================== */
 
-.main-nav .button {
-    padding: 13px 20px;
-    font-size: 1.05rem;
+@media (max-width: 380px) {
+    body {
+        padding: 8px;
+    }
+
+    body.experience-page,
+    body.contact-page {
+        padding: 8px;
+    }
+
+    .main-nav,
+    .contact-page .main-nav {
+        gap: 6px;
+        padding: 9px;
+    }
+
+    .main-nav .button,
+    .contact-page .main-nav .button {
+        padding: 9px 5px;
+        font-size: 0.8rem;
+    }
 }
