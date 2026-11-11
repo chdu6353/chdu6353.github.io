@@ -24,10 +24,10 @@
     color: var(--home-ink);
 }
 
-/* KEEP HOMEPAGE CONTENT CENTERED */
-
 .home-page .container {
+    width: 100%;
     max-width: 1150px;
+    min-width: 0;
     margin: 0 auto;
 }
 
@@ -56,12 +56,14 @@
 }
 
 .home-page .header h1 {
+    max-width: 100%;
     color: var(--home-ink);
     font-family: var(--font-main);
-    font-size: clamp(4rem, 10vw, 8rem);
+    font-size: clamp(3rem, 9vw, 8rem);
     font-weight: 700;
-    line-height: 0.88;
-    letter-spacing: -7px;
+    line-height: 0.95;
+    letter-spacing: -0.065em;
+    overflow-wrap: anywhere;
 }
 
 .home-page .header h1 span {
@@ -119,6 +121,7 @@
 
 .home-page .color-line span {
     flex: 1;
+    min-width: 0;
     border-radius: 20px;
 }
 
@@ -152,10 +155,14 @@
 
 .home-page .intro {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: center;
     gap: 5rem;
     padding: 5rem 2rem;
+}
+
+.home-page .intro > * {
+    min-width: 0;
 }
 
 /* PHOTO */
@@ -165,6 +172,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 0;
     padding: 2rem;
 }
 
@@ -173,15 +181,19 @@
     top: 5%;
     left: 8%;
     width: 270px;
+    max-width: 75%;
     height: 350px;
     border-radius: 45% 55% 40% 60%;
     background-color: var(--home-pink);
     transform: rotate(8deg);
+    pointer-events: none;
 }
 
 .home-page .photo-frame {
     position: relative;
     z-index: 2;
+    width: fit-content;
+    max-width: 100%;
     padding: 12px 12px 35px;
     border: 2px solid var(--home-ink);
     border-radius: 18px;
@@ -218,6 +230,7 @@
     right: -5px;
     bottom: 15%;
     z-index: 3;
+    max-width: 45%;
     padding: 0.7rem 1rem;
     border: 2px solid var(--home-ink);
     border-radius: 8px;
@@ -226,6 +239,7 @@
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 2px;
+    text-align: center;
     transform: rotate(5deg);
 }
 
@@ -248,6 +262,7 @@
     font-size: clamp(2.3rem, 4vw, 3.5rem);
     font-weight: 700;
     line-height: 1.05;
+    letter-spacing: -0.035em;
 }
 
 .home-page .bio h2 em,
@@ -289,6 +304,7 @@
 ======================================== */
 
 .home-page .interests {
+    min-width: 0;
     margin: 2rem 0 5rem;
     padding: 3.5rem;
     border: 2px solid var(--home-ink);
@@ -303,9 +319,13 @@
 
 .home-page .interests-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
     gap: 3rem;
+}
+
+.home-page .interests-content > * {
+    min-width: 0;
 }
 
 .home-page .interests h2 {
@@ -380,7 +400,7 @@
 }
 
 .home-page .footer h2 {
-    font-size: 3.5rem;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
 }
 
 .home-page .social-links {
@@ -429,86 +449,266 @@
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   TABLET / SMALL LAPTOP
 ======================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .home-page {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .home-page .header {
-        padding-top: 2rem;
-    }
-
-    .home-page .header h1 {
-        font-size: clamp(3.5rem, 13vw, 5.5rem);
-        letter-spacing: -4px;
-    }
-
-    .home-page .subtitle {
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
+        padding: 2.5rem 0.5rem 1rem;
     }
 
     .home-page .intro {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 3rem 0.5rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.5rem;
+        padding: 3.5rem 1rem;
     }
 
-    .home-page .headshot {
-        max-width: 300px;
-        height: 380px;
+    .home-page .photo-area {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
-    .home-page .photo-decoration {
-        width: 220px;
-        height: 300px;
+    .home-page .bio {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
     }
 
     .home-page .interests {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem;
     }
 
     .home-page .interests-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 1.5rem;
     }
 
     .home-page .footer-top {
-        flex-direction: column;
         align-items: flex-start;
+    }
+}
+
+/* ========================================
+   REGULAR PHONE SIZES
+======================================== */
+
+@media (max-width: 650px) {
+    .home-page {
+        padding: 12px;
+    }
+
+    .home-page .header {
+        padding: 1.8rem 0.25rem 0.8rem;
+    }
+
+    .home-page .eyebrow {
+        margin-bottom: 1rem;
+        font-size: 0.68rem;
+        letter-spacing: 1.4px;
+        line-height: 1.7;
+    }
+
+    .home-page .star {
+        margin: 0 0.2rem;
+        font-size: 1rem;
+    }
+
+    .home-page .header h1 {
+        font-size: clamp(2rem, 9vw, 3.7rem);
+        line-height: 1.05;
+        letter-spacing: -0.055em;
+        overflow-wrap: anywhere;
+    }
+
+    .home-page .subtitle {
+        margin-top: 1.3rem;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        line-height: 1.7;
+    }
+
+    .home-page .color-line {
+        max-width: 240px;
+        height: 8px;
+        gap: 5px;
+        margin-top: 1.5rem;
+    }
+
+    .home-page .intro {
+        gap: 2.5rem;
+        padding: 2.5rem 0.5rem 3rem;
+    }
+
+    .home-page .photo-area {
+        max-width: 370px;
+        padding: 1.2rem;
+    }
+
+    .home-page .photo-frame {
+        width: min(100%, 285px);
+        padding: 9px 9px 26px;
+        box-shadow: 5px 5px 0 var(--home-ink);
+    }
+
+    .home-page .headshot {
+        width: 100%;
+        max-width: none;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
+
+    .home-page .photo-decoration {
+        top: 7%;
+        left: 8%;
+        width: 65%;
+        height: 76%;
+    }
+
+    .home-page .photo-frame figcaption {
+        font-size: 0.82rem;
+    }
+
+    .home-page .photo-note {
+        right: 0;
+        bottom: 9%;
+        max-width: 42%;
+        padding: 0.5rem 0.6rem;
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+    }
+
+    .home-page .bio h2,
+    .home-page .interests h2 {
+        font-size: clamp(1.9rem, 7vw, 2.8rem);
+        line-height: 1.12;
+    }
+
+    .home-page .bio p:not(.section-label) {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .home-page .interests {
+        margin: 0.5rem 0 3rem;
+        padding: 1.7rem 1.3rem;
+        border-radius: 22px;
+        box-shadow: 5px 5px 0 var(--home-ink);
+    }
+
+    .home-page .interests-content {
+        gap: 1rem;
+    }
+
+    .home-page .interests-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .home-page .interest-tags {
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+    }
+
+    .home-page .tag {
+        padding: 0.55rem 0.8rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
+    }
+
+    .home-page .footer {
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+
+    .home-page .footer-top {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+        padding-bottom: 2rem;
+    }
+
+    .home-page .footer h2 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        overflow-wrap: anywhere;
     }
 
     .home-page .social-links {
         width: 100%;
     }
 
+    .home-page .social-links a {
+        min-width: 0;
+        gap: 1rem;
+    }
+
     .home-page .footer-bottom {
         flex-direction: column;
+        gap: 0.7rem;
+        font-size: 0.65rem;
+        letter-spacing: 1px;
     }
 }
 
-@media (max-width: 400px) {
-    .home-page .eyebrow {
-        font-size: 0.65rem;
-        letter-spacing: 1.5px;
+/* ========================================
+   EXTRA-SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+    .home-page {
+        padding: 10px;
     }
 
-    .home-page .headshot {
-        height: 330px;
+    .home-page .header h1 {
+        font-size: clamp(1.9rem, 8.5vw, 3rem);
+        letter-spacing: -0.05em;
     }
 
-    .home-page .bio h2 {
-        font-size: 2.2rem;
+    .home-page .intro {
+        padding-left: 0;
+        padding-right: 0;
     }
 
-    .home-page .interest-tags {
-        gap: 0.5rem;
+    .home-page .photo-area {
+        padding: 0.9rem;
+    }
+
+    .home-page .photo-frame {
+        width: min(100%, 255px);
+    }
+
+    .home-page .photo-note {
+        right: -2px;
+        font-size: 0.52rem;
+    }
+
+    .home-page .interests {
+        padding: 1.4rem 1rem;
     }
 
     .home-page .tag {
+        padding: 0.5rem 0.65rem;
         font-size: 0.6rem;
+    }
+}
+
+/* ========================================
+   REDUCED MOTION PREFERENCE
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .home-page .header h1 span:hover {
+        animation: none;
+    }
+
+    .home-page .photo-frame,
+    .home-page .tag,
+    .home-page .text-link {
+        transition: none;
     }
 }
