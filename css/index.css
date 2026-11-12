@@ -815,3 +815,48 @@
         padding: 0.75rem;
     }
 }
+
+/* ========================================
+   FINAL HOMEPAGE MOBILE SPACING
+======================================== */
+
+@media (max-width: 900px) {
+
+    /* Keep the original homepage background and styling */
+    .home-page .container {
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    /* Override the shared stylesheet's zero padding */
+    body.home-page {
+        padding: 20px;
+    }
+
+    /* Make all sections respect the available width */
+    .home-page .container,
+    .home-page main,
+    .home-page .intro,
+    .home-page .interests,
+    .home-page .footer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+}
+
+@media (max-width: 380px) {
+
+    body.home-page {
+        padding: 14px;
+    }
+
+}
