@@ -712,3 +712,106 @@
         transition: none;
     }
 }
+
+/* ========================================
+   HOMEPAGE — RESPONSIVE FIT ONLY
+   Preserve original design and colors
+======================================== */
+
+@media (max-width: 900px) {
+
+    /* Remove the extra white panel */
+    .home-page .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0;
+
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* Keep all homepage content within the screen */
+    .home-page {
+        padding: 18px;
+    }
+
+    .home-page .header,
+    .home-page .intro,
+    .home-page .interests,
+    .home-page .footer {
+        max-width: 100%;
+    }
+
+    .home-page .intro {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .home-page .intro > *,
+    .home-page .interests-content > * {
+        min-width: 0;
+    }
+}
+
+@media (max-width: 650px) {
+
+    /* Comfortable side margins on phones */
+    .home-page {
+        padding: 16px;
+    }
+
+    .home-page .header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Prevent oversized text from overflowing */
+    .home-page .header h1 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    /* Keep the headshot and decorations contained */
+    .home-page .photo-area {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    .home-page .photo-frame {
+        max-width: calc(100% - 12px);
+    }
+
+    .home-page .photo-note {
+        right: 0;
+    }
+
+    /* Keep the yellow card within the page */
+    .home-page .interests {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .home-page .footer {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .home-page {
+        padding: 12px;
+    }
+
+    .home-page .intro {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .home-page .photo-area {
+        padding: 0.75rem;
+    }
+}

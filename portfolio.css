@@ -22,7 +22,6 @@
     --medium: 1rem;
     --large: 2rem;
     --extra-large: 4rem;
-
     --radius: 12px;
 }
 
@@ -54,11 +53,10 @@ body {
     line-height: 1.7;
     overflow-wrap: break-word;
 
-    background-image:
-        radial-gradient(
-            rgba(129, 61, 80, 0.12) 0.6px,
-            transparent 0.6px
-        );
+    background-image: radial-gradient(
+        rgba(129, 61, 80, 0.12) 0.6px,
+        transparent 0.6px
+    );
     background-size: 8px 8px;
 }
 
@@ -70,8 +68,8 @@ video {
 .container {
     width: 100%;
     max-width: 1150px;
-    margin-inline: auto;
     min-width: 0;
+    margin-inline: auto;
 }
 
 /* ==========================================
@@ -85,7 +83,7 @@ video {
 .contact-submit:focus-visible,
 .nav-dropdown-menu a:focus-visible {
     outline: 3px solid var(--blue);
-    outline-offset: 4px;
+    outline-offset: 3px;
 }
 
 /* ==========================================
@@ -96,10 +94,10 @@ video {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 15px;
 
-    width: fit-content;
+    width: max-content;
     max-width: 100%;
     margin: 35px auto 45px;
     padding: 15px 22px;
@@ -119,6 +117,7 @@ video {
     justify-content: center;
     gap: 6px;
 
+    min-width: 0;
     padding: 13px 20px;
 
     background-color: transparent;
@@ -132,6 +131,7 @@ video {
     line-height: 1.3;
     text-align: center;
     text-decoration: none;
+    white-space: nowrap;
 
     cursor: pointer;
     transition:
@@ -206,7 +206,25 @@ video {
 }
 
 /* ==========================================
-   6. MOBILE PAGE SPACING
+   6. TABLET NAVIGATION
+========================================== */
+
+@media (max-width: 900px) {
+    .main-nav {
+        gap: 7px;
+        padding: 11px 13px;
+        margin-top: 25px;
+        margin-bottom: 35px;
+    }
+
+    .main-nav .button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   7. MOBILE PAGE SPACING
 ========================================== */
 
 @media (max-width: 768px) {
@@ -214,19 +232,11 @@ video {
         padding: 12px;
     }
 
-    /*
-       Homepage and Artist already have
-       their own page-level spacing.
-    */
     body.home-page,
     body.artist-page {
         padding: 0;
     }
 
-    /*
-       Give Experience and Contact
-       more room on small screens.
-    */
     body.experience-page,
     body.contact-page {
         padding: 12px;
@@ -236,9 +246,6 @@ video {
         max-width: 100%;
     }
 
-    /*
-       Existing Experience page adjustments.
-    */
     .experience-page .experience-hero {
         max-width: 100%;
         margin-left: 0;
@@ -255,9 +262,6 @@ video {
         padding-right: 4px;
     }
 
-    /*
-       Existing Contact page adjustments.
-    */
     .contact-page .contact-hero {
         max-width: 100%;
         margin-left: 0;
@@ -271,26 +275,35 @@ video {
 }
 
 /* ==========================================
-   7. MOBILE NAVIGATION
-   Keep this AFTER desktop navigation.
+   8. MOBILE NAVIGATION — ONE ROW
 ========================================== */
 
 @media (max-width: 650px) {
     .main-nav,
     .contact-page .main-nav {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
-        justify-content: stretch;
-        gap: 9px;
 
-        width: 100%;
-        max-width: 440px;
-        margin: 18px auto 32px;
-        padding: 12px;
+        /*
+           Five columns:
+           Home / Art / About / Life & Interests / Contact
+        */
+        grid-template-columns:
+            minmax(0, 0.8fr)
+            minmax(0, 0.65fr)
+            minmax(0, 0.95fr)
+            minmax(0, 1.75fr)
+            minmax(0, 0.95fr);
 
-        border-radius: 25px;
-        box-shadow: 4px 4px 0 #222222;
+        align-items: center;
+        gap: 2px;
+
+        width: calc(100% - 20px);
+        max-width: 520px;
+        margin: 18px auto 30px;
+        padding: 7px 5px;
+
+        border-radius: 40px;
+        box-shadow: 3px 3px 0 #222222;
     }
 
     .main-nav > .button,
@@ -301,36 +314,47 @@ video {
 
     .main-nav .button,
     .contact-page .main-nav .button {
+        display: flex;
         width: 100%;
-        min-height: 44px;
-        padding: 10px 7px;
+        min-width: 0;
+        min-height: 36px;
 
-        font-size: 0.85rem;
-        line-height: 1.3;
-        white-space: normal;
+        padding: 7px 2px;
+        gap: 2px;
+
+        font-size: clamp(0.55rem, 2.15vw, 0.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
+        white-space: nowrap;
     }
 
-    /*
-       Contact is the fifth button.
-       Give it its own full-width row.
-    */
-    .main-nav > .button:last-child {
-        grid-column: 1 / -1;
-    }
-
-    .nav-dropdown-toggle {
+    .main-nav .nav-dropdown-toggle {
         height: 100%;
     }
 
+    /*
+       Remove the previous rule that made
+       Contact span an entire second row.
+    */
+    .main-nav > .button:last-child {
+        grid-column: auto;
+    }
+
     .nav-dropdown-menu {
-        min-width: 100%;
-        max-width: calc(100vw - 36px);
-        padding: 8px;
+        min-width: 155px;
+        padding: 7px;
+        border-radius: 14px;
+    }
+
+    .nav-dropdown-menu a {
+        font-size: 0.85rem;
+        padding: 9px;
     }
 
     /*
-       Keep the right-hand dropdown
-       inside the screen.
+       Right-side dropdown opens toward
+       the middle of the screen.
     */
     .main-nav > .nav-dropdown:nth-child(4)
     .nav-dropdown-menu {
@@ -340,12 +364,17 @@ video {
 }
 
 /* ==========================================
-   8. EXTRA-SMALL SCREENS
+   9. EXTRA-SMALL PHONES
 ========================================== */
 
 @media (max-width: 380px) {
     body {
         padding: 8px;
+    }
+
+    body.home-page,
+    body.artist-page {
+        padding: 0;
     }
 
     body.experience-page,
@@ -355,13 +384,34 @@ video {
 
     .main-nav,
     .contact-page .main-nav {
-        gap: 6px;
-        padding: 9px;
+        width: calc(100% - 12px);
+        gap: 0;
+        padding: 6px 3px;
+        margin-top: 14px;
+        margin-bottom: 25px;
     }
 
     .main-nav .button,
     .contact-page .main-nav .button {
-        padding: 9px 5px;
-        font-size: 0.8rem;
+        min-height: 34px;
+        padding: 6px 1px;
+        gap: 1px;
+        font-size: 0.55rem;
+        letter-spacing: -0.04em;
+    }
+}
+
+/* ==========================================
+   10. REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .main-nav .button,
+    .nav-dropdown-menu a {
+        transition: none;
     }
 }
