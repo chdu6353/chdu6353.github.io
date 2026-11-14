@@ -1,0 +1,425 @@
+
+/* ==========================================
+   COURSES PAGE — COLOR PALETTE
+========================================== */
+
+.courses-page {
+    --courses-cream: #FFF4DF;
+    --courses-ink: #292725;
+    --courses-pink: #F5A6C8;
+    --courses-blue: #78B9E8;
+    --courses-yellow: #F6D94A;
+    --courses-green: #77C9A5;
+    --courses-coral: #F07855;
+
+    background-color: var(--courses-cream);
+    color: var(--courses-ink);
+}
+
+.courses-container {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    padding: 30px 0 80px;
+}
+
+/* ==========================================
+   BACK TO HOME
+========================================== */
+
+.courses-back {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+
+    background: var(--courses-yellow);
+    border: 2px solid var(--courses-ink);
+    border-radius: 30px;
+    box-shadow: 4px 4px 0 var(--courses-ink);
+
+    color: var(--courses-ink);
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+.courses-back:hover {
+    transform: translateY(-3px);
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.courses-hero {
+    max-width: 850px;
+    margin: 90px auto 65px;
+    text-align: center;
+}
+
+.courses-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.courses-hero h1 {
+    margin: 20px 0;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.055em;
+}
+
+.courses-hero h1 span {
+    color: var(--courses-coral);
+}
+
+.courses-hero p {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.courses-scribble {
+    margin-top: 25px;
+    color: var(--courses-coral);
+    font-size: 2rem;
+    letter-spacing: 15px;
+    transform: rotate(-5deg);
+}
+
+/* ==========================================
+   COURSE NAVIGATION
+========================================== */
+
+.course-nav {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+
+    margin: 0 0 95px;
+}
+
+.course-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 70px;
+    padding: 15px;
+
+    border: 2px solid var(--courses-ink);
+    border-radius: 18px;
+    box-shadow: 4px 4px 0 var(--courses-ink);
+
+    color: var(--courses-ink);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: transform 0.2s ease;
+}
+
+.course-link:hover {
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+.sound-link {
+    background: var(--courses-pink);
+}
+
+.image-link {
+    background: var(--courses-blue);
+}
+
+.object-link {
+    background: var(--courses-yellow);
+}
+
+.form-link {
+    background: var(--courses-green);
+}
+
+/* ==========================================
+   COURSE SECTIONS
+========================================== */
+
+.course-section {
+    --course-accent: var(--courses-pink);
+
+    margin-bottom: 110px;
+    scroll-margin-top: 25px;
+}
+
+.sound-section {
+    --course-accent: var(--courses-pink);
+}
+
+.image-section {
+    --course-accent: var(--courses-blue);
+}
+
+.object-section {
+    --course-accent: var(--courses-yellow);
+}
+
+.form-section {
+    --course-accent: var(--courses-green);
+}
+
+.course-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+
+    border-bottom: 3px solid var(--courses-ink);
+}
+
+.course-heading > div {
+    min-width: 0;
+}
+
+.course-number {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.course-heading h2 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.course-heading h2 span {
+    color: var(--courses-coral);
+}
+
+.course-heading p {
+    max-width: 360px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   PROJECT GRID
+========================================== */
+
+.course-project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+/* ==========================================
+   EMPTY PROJECT PLACEHOLDER
+========================================== */
+
+.project-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 270px;
+    padding: 30px;
+
+    background: var(--course-accent);
+    border: 2px dashed var(--courses-ink);
+    border-radius: 22px;
+
+    text-align: center;
+}
+
+.project-placeholder > span {
+    margin-bottom: 10px;
+    font-size: 3.5rem;
+}
+
+.project-placeholder h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.project-placeholder p {
+    max-width: 280px;
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   REAL PROJECT CARDS — READY FOR LATER
+========================================== */
+
+.course-project-card {
+    overflow: hidden;
+
+    background: #FFFCF7;
+    border: 2px solid var(--courses-ink);
+    border-radius: 20px;
+    box-shadow: 5px 5px 0 var(--courses-ink);
+
+    transition: transform 0.2s ease;
+}
+
+.course-project-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-project-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.course-project-info {
+    padding: 25px;
+}
+
+.course-project-info h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+}
+
+.course-project-info p {
+    line-height: 1.7;
+}
+
+.course-project-info a {
+    display: inline-block;
+    margin-top: 18px;
+
+    color: var(--courses-ink);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.courses-footer {
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 40px;
+
+    background: var(--courses-blue);
+    border: 2px solid var(--courses-ink);
+    border-radius: 24px;
+    box-shadow: 5px 5px 0 var(--courses-ink);
+
+    text-align: center;
+}
+
+.courses-footer > span {
+    font-size: 2rem;
+}
+
+.courses-footer p {
+    margin: 15px 0 20px;
+    font-weight: 600;
+}
+
+.courses-footer a {
+    color: var(--courses-ink);
+    font-weight: 700;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+.courses-page a:focus-visible {
+    outline: 3px solid #759ABF;
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 800px) {
+    .course-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .course-nav {
+        gap: 10px;
+    }
+
+    .course-link {
+        font-size: 1rem;
+        padding: 12px 8px;
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+    .courses-container {
+        padding-top: 18px;
+    }
+
+    .courses-hero {
+        margin: 65px auto 45px;
+    }
+
+    .courses-hero p {
+        font-size: 0.95rem;
+    }
+
+    .course-nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 70px;
+    }
+
+    .course-link {
+        min-height: 60px;
+    }
+
+    .course-section {
+        margin-bottom: 75px;
+    }
+
+    .course-project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-placeholder {
+        min-height: 220px;
+    }
+
+    .courses-footer {
+        padding: 28px 20px;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .courses-back,
+    .course-link,
+    .course-project-card {
+        transition: none;
+    }
+}
