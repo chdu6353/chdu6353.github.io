@@ -278,88 +278,79 @@ video {
 }
 
 
+
 /* ==========================================
-   8. MOBILE NAVIGATION — TWO ROWS
+   8. MOBILE NAVIGATION — COMPACT TWO ROWS
 ========================================== */
 
 @media (max-width: 650px) {
 
     .main-nav,
     .contact-page .main-nav {
-        display: grid;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
 
-        /* Four equal columns */
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-
-        align-items: stretch;
-        gap: 6px;
+        gap: 4px 8px;
 
         width: calc(100% - 20px);
         max-width: 520px;
 
         margin: 18px auto 30px;
-        padding: 9px;
+        padding: 10px 8px;
 
-        border-radius: 24px;
+        border-radius: 28px;
         box-shadow: 3px 3px 0 #222222;
     }
 
-    /* All navigation items */
+    /* Navigation items */
     .main-nav > .button,
     .main-nav > .nav-dropdown {
-        width: 100%;
+        flex: 0 0 auto;
+        width: auto;
         min-width: 0;
     }
 
     .main-nav .button,
     .contact-page .main-nav .button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 100%;
-        min-width: 0;
+        width: auto;
         min-height: 40px;
 
-        padding: 8px 4px;
-        gap: 3px;
+        padding: 8px 10px;
 
-        font-size: clamp(0.7rem, 2.7vw, 0.85rem);
+        font-size: 0.85rem;
         font-weight: 700;
         line-height: 1.2;
-        letter-spacing: -0.02em;
+        letter-spacing: 0;
         white-space: nowrap;
     }
 
-    /* SECOND ROW */
-
-    /* Courses occupies first column */
+    /* Force Courses to start the second row */
     .main-nav > :nth-child(5) {
-        grid-column: 1 / 2;
+        break-before: auto;
     }
 
-    /* About occupies the middle two */
-    .main-nav > :nth-child(6) {
-        grid-column: 2 / 4;
+    /* Make first four buttons fill first row */
+    .main-nav > :nth-child(-n+4) {
+        flex: 1 1 calc(25% - 8px);
     }
 
-    /* Contact occupies the last column */
-    .main-nav > :nth-child(7) {
-        grid-column: 4 / 5;
+    /* Make last three buttons evenly spaced */
+    .main-nav > :nth-child(n+5) {
+        flex: 1 1 calc(33.333% - 8px);
     }
 
     .main-nav .nav-dropdown-toggle {
-        height: 100%;
+        width: 100%;
     }
 
-    /* Keep dropdown inside the screen */
     .main-nav .nav-dropdown-menu {
         left: auto;
         right: 0;
 
         min-width: 175px;
         padding: 8px;
-
         border-radius: 14px;
     }
 
@@ -368,7 +359,6 @@ video {
         padding: 10px;
     }
 }
-
 
 /* ==========================================
    9. EXTRA-SMALL PHONES
@@ -393,32 +383,17 @@ video {
     .main-nav,
     .contact-page .main-nav {
         width: calc(100% - 12px);
-        gap: 3px;
-        padding: 6px;
+        gap: 4px;
+        padding: 8px 5px;
         margin-top: 14px;
         margin-bottom: 25px;
     }
 
     .main-nav .button,
     .contact-page .main-nav .button {
-        min-height: 36px;
-        padding: 6px 2px;
-        font-size: 0.68rem;
-        letter-spacing: -0.03em;
-    }
-}
-
-/* ==========================================
-   10. REDUCED MOTION
-========================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .main-nav .button,
-    .nav-dropdown-menu a {
-        transition: none;
+        min-height: 38px;
+        padding: 7px 5px;
+        font-size: 0.76rem;
+        letter-spacing: -0.01em;
     }
 }
