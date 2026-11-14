@@ -52,41 +52,39 @@
         </header>
 
 
-    <!-- NAVIGATION -->
-    <nav class="main-nav" aria-label="Main navigation">
+        <!-- NAVIGATION -->
+        <nav class="main-nav" aria-label="Main navigation">
 
-        <a href="index.html" class="button">Home</a>
+            <a href="index.html" class="button">Home</a>
 
-        <a href="pages/artist.html" class="button nav-art">Art</a>
-        <a href="pages/shop.html" class="button">Shop</a>
-        <a href="pages/writing.html" class="button">Writing</a>
-        <a href="pages/courses.html" class="button">Courses</a>
+            <a href="pages/artist.html" class="button nav-art">Art</a>
 
+            <a href="pages/shop.html" class="button">Shop</a>
 
-        <div class="nav-dropdown">
-            <button class="button nav-dropdown-toggle" type="button">
-                About <span aria-hidden="true">⌄</span>
-            </button>
-            <div class="nav-dropdown-menu">
-                <a href="pages/experience.html">Experience</a>
+            <a href="pages/writing.html" class="button">Writing</a>
+
+            <a href="pages/courses.html" class="button">Courses</a>
+
+            <!-- ABOUT DROPDOWN -->
+            <div class="nav-dropdown">
+                <button class="button nav-dropdown-toggle" type="button"
+                        aria-expanded="false"
+                        aria-controls="about-dropdown">
+                    About <span aria-hidden="true">⌄</span>
+                </button>
+
+                <div class="nav-dropdown-menu" id="about-dropdown">
+                    <a href="pages/experience.html">Experience</a>
+                    <a href="pages/interests/hobbies.html">Hobbies</a>
+                    <a href="pages/interests/food.html">Food</a>
+                    <a href="pages/interests/gardening.html">Gardening</a>
+                    <a href="pages/interests/sports.html">Sports</a>
+                </div>
             </div>
-        </div>
 
-        <div class="nav-dropdown">
-            <button class="button nav-dropdown-toggle" type="button">
-                Life & Interests <span aria-hidden="true">⌄</span>
-            </button>
-            <div class="nav-dropdown-menu">
-                <a href="pages/interests/hobbies.html">Hobbies</a>
-                <a href="pages/interests/food.html">Food</a>
-                <a href="pages/interests/gardening.html">Gardening</a>
-                <a href="pages/interests/sports.html">Sports</a>
-            </div>
-        </div>
+            <a href="pages/contact.html" class="button">Contact</a>
 
-        <a href="pages/contact.html" class="button">Contact</a>
-    
-    </nav>
+        </nav>
 
 
         <!-- MAIN INTRODUCTION -->
@@ -256,6 +254,49 @@
         </footer>
 
     </div>
+
+
+    <script>
+        const dropdown = document.querySelector(".nav-dropdown");
+        const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+
+        function closeDropdown() {
+            dropdown.classList.remove("is-open");
+            toggle.setAttribute("aria-expanded", "false");
+        }
+
+        toggle.addEventListener("click", () => {
+            const isOpen = dropdown.classList.toggle("is-open");
+            toggle.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        // Close when clicking outside the dropdown
+        document.addEventListener("click", (event) => {
+            if (!dropdown.contains(event.target)) {
+                closeDropdown();
+            }
+        });
+
+        // Close when pressing Escape
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                const wasOpen = dropdown.classList.contains("is-open");
+                closeDropdown();
+
+                if (wasOpen) {
+                    toggle.focus();
+                }
+            }
+        });
+
+        // Close when keyboard focus leaves the dropdown
+        dropdown.addEventListener("focusout", (event) => {
+            if (!event.relatedTarget ||
+                !dropdown.contains(event.relatedTarget)) {
+                closeDropdown();
+            }
+        });
+    </script>
 
 </body>
 </html>
